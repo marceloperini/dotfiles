@@ -1,4 +1,6 @@
 #!/bin/bash
+DIR=$('pwd')
+
 sudo apt-get update && sudo apt-get upgrade -y
 
 ### copia os repositórios
@@ -35,10 +37,10 @@ sudo tlp start
 ### Instalando oh-my-zsh
 sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
-ln -s gitconfig ~/.gitconfig
-ln -s zshrc ~/.zshrc
-ln -s tmux.conf ~/.tmux.conf
-ln -s alias.zsh ~/.oh-my-zsh/lib/alias.zsh
+ln -s $DIR/gitconfig ~/.gitconfig
+ln -s ~/.dotfiles/zshrc ~/.zshrc
+ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
+ln -s ~/.dotfiles/alias.zsh ~/.oh-my-zsh/lib/alias.zsh
 
 ### instalando mysql ###
 sudo apt-get install mysql-server mysql-server-5.5 mysql-client-5.5 \
