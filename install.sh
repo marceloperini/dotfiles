@@ -11,12 +11,16 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
 sudo apt-key adv --keyserver pool.sks-keyservers.net --recv-keys CD4E8809
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys FC1B6133
 
+### para rodar jogos na steam
+sudo usermod -a -G video,audio $('whoami')
+sudo dpkg --add-architecture i386
+
 sudo apt-get update
 
 sudo apt-get install synaptic apt-xapian-index gdebi gksu python-gpgme -y
 sudo apt-get install firmware-linux intel-microcode -y
 sudo apt-get install ttf-freefont ttf-mscorefonts-installer \
-		ttf-bitstream-vera ttf-dejavu ttf-liberation -y
+    ttf-bitstream-vera ttf-dejavu ttf-liberation -y
 sudo apt-get install flashplugin-nonfree icedtea-plugin file-roller evince -y
 sudo apt-get install vlc bleachbit shotwell gparted gnome-disk-utility -y
 sudo apt-get install libreoffice-writer libreoffice-calc libreoffice-impress -y
@@ -26,10 +30,10 @@ sudo apt-get install sharutils rar libavcodec-extra -y
 sudo apt-get install gstreamer0.10-plugins-ugly gstreamer0.10-plugins-bad -y
 sudo apt-get install gstreamer0.10-fluendo-mp3 gstreamer0.10-pulseaudio -y
 sudo apt-get install libgstreamer-perl libgstreamer-interfaces-perl -y
-sudo apt-get install vim-nox bash-completion zsh tmux irssi mpd ncmpcpp-y 
+sudo apt-get install vim-nox bash-completion zsh tmux irssi mpd ncmpcpp-y
 sudo apt-get install nmap iptraf tcpdump iftop preload alacarte python-pip -y
 sudo apt-get install tlp tlp-rdw tp-smapi-dkms acpi-call-dkms smartmontools -y
-sudo apt-get install ethtool pspp dia zeal wget -y
+sudo apt-get install ethtool pspp dia zeal wget calibre steam -y
 sudo apt-get install build-essential golang git-core gitg geany powerline -y
 sudo pip install -U pip
 sudo tlp start
@@ -42,9 +46,13 @@ ln -s ~/.dotfiles/zshrc ~/.zshrc
 ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/alias.zsh ~/.oh-my-zsh/lib/alias.zsh
 
+sudo cp zram /etc/init.d/zram
+sudo chmod +x /etc/init.d/zram
+sudo insserv zram
+
 ### instalando mysql ###
 sudo apt-get install mysql-server mysql-server-5.5 mysql-client-5.5 \
-		mysql-common -y
+    mysql-common -y
 sudo apt-get install libmysqlclient-dev mysql-workbench -y
 sudo update-rc.d -f mysql remove
 
@@ -59,7 +67,7 @@ sudo ln -s /root/.vim/vimrc /root/.vimrc
 ### instalando ruby on rails
 sudo apt-get install curl nodejs -y
 gpg --keyserver hkp://keys.gnupg.net --recv-keys \
-		409B6B1796C275462A1703113804BB82D39DC0E3
+    409B6B1796C275462A1703113804BB82D39DC0E3
 curl -sSL https://get.rvm.io | bash -s stable
 source ~/.zshrc
 rvm requirements
