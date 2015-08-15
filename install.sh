@@ -8,8 +8,9 @@ sudo cp sources.list /etc/apt/
 sudo cp sources.list.d/* /etc/apt/sources.list.d/
 
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
-sudo apt-key adv --keyserver pool.sks-keyservers.net --recv-keys CD4E8809
+sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net:80 --recv-keys CD4E8809
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys FC1B6133
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 685D1580
 
 ### para rodar jogos na steam
 sudo usermod -a -G video,audio $('whoami')
@@ -41,7 +42,7 @@ sudo tlp start
 ### Instalando oh-my-zsh
 sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
-ln -s $DIR/gitconfig ~/.gitconfig
+ln -s ~/.dotfiles/gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/zshrc ~/.zshrc
 ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/alias.zsh ~/.oh-my-zsh/lib/alias.zsh
@@ -58,7 +59,7 @@ sudo update-rc.d -f mysql remove
 
 ### configurando vim
 sudo apt-get install exuberant-ctags ncurses-term -y
-git clone git://github.com/Sidoniuns/vimfiles.git ~/.vim
+git clone https://github.com/Sidoniuns/vimfiles.git ~/.vim
 git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 ln -s ~/.vim/vimrc ~/.vimrc
 sudo cp -r /home/marcelo/.vim /root/

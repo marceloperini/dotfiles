@@ -9,3 +9,6 @@ alias tkill='tmux kill-session -t'
 alias ev='vim ~/.vimrc'
 alias et='vim ~/.tmux.conf'
 alias ez='vim ~/.zshrc'
+
+# to use pgUp and pgDn in irssi
+alias irssi='TERM=screen irssi'
