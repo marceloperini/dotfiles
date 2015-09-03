@@ -4,13 +4,14 @@ DIR=$('pwd')
 sudo apt-get update && sudo apt-get upgrade -y
 
 ### copia os repositórios
-sudo cp sources.list /etc/apt/
+# sudo cp sources.list /etc/apt/
 sudo cp sources.list.d/* /etc/apt/sources.list.d/
 
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
 sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net:80 --recv-keys CD4E8809
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys FC1B6133
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 685D1580
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 852541CB
 
 ### para rodar jogos na steam
 sudo usermod -a -G video,audio $('whoami')
@@ -42,10 +43,10 @@ sudo tlp start
 ### Instalando oh-my-zsh
 sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
-ln -s ~/.dotfiles/gitconfig ~/.gitconfig
-ln -s ~/.dotfiles/zshrc ~/.zshrc
-ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
-ln -s ~/.dotfiles/alias.zsh ~/.oh-my-zsh/lib/alias.zsh
+ln -s -f ~/.dotfiles/gitconfig ~/.gitconfig
+ln -s -f ~/.dotfiles/zshrc ~/.zshrc
+ln -s -f ~/.dotfiles/tmux.conf ~/.tmux.conf
+ln -s -f ~/.dotfiles/alias.zsh ~/.oh-my-zsh/lib/alias.zsh
 
 sudo cp zram /etc/init.d/zram
 sudo chmod +x /etc/init.d/zram
@@ -59,6 +60,7 @@ sudo update-rc.d -f mysql remove
 
 ### configurando vim
 sudo apt-get install exuberant-ctags ncurses-term -y
+pip install --user git+git://github.com/Lokaltog/powerline
 git clone https://github.com/Sidoniuns/vimfiles.git ~/.vim
 git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 ln -s ~/.vim/vimrc ~/.vimrc
