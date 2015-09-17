@@ -5,7 +5,7 @@ sudo apt-get update && sudo apt-get upgrade -y
 
 ### copia os repositórios
 # sudo cp sources.list /etc/apt/
-sudo cp sources.list.d/* /etc/apt/sources.list.d/
+sudo cp -f ~/.dotfiles/sources.list.d/* /etc/apt/sources.list.d/
 
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
 sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net:80 --recv-keys CD4E8809
