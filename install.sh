@@ -32,7 +32,7 @@ sudo apt-get install sharutils rar libavcodec-extra -y
 sudo apt-get install gstreamer0.10-plugins-ugly gstreamer0.10-plugins-bad -y
 sudo apt-get install gstreamer0.10-fluendo-mp3 gstreamer0.10-pulseaudio -y
 sudo apt-get install libgstreamer-perl libgstreamer-interfaces-perl -y
-sudo apt-get install vim-nox bash-completion zsh tmux irssi mpd ncmpcpp-y
+sudo apt-get install vim-nox bash-completion zsh tmux irssi mpd ncmpcpp -y
 sudo apt-get install nmap iptraf tcpdump iftop preload alacarte python-pip -y
 sudo apt-get install tlp tlp-rdw tp-smapi-dkms acpi-call-dkms smartmontools -y
 sudo apt-get install ethtool pspp dia zeal wget calibre steam -y
@@ -71,7 +71,7 @@ sudo ln -s /root/.vim/vimrc /root/.vimrc
 sudo apt-get install curl nodejs -y
 gpg --keyserver hkp://keys.gnupg.net --recv-keys \
     409B6B1796C275462A1703113804BB82D39DC0E3
-curl -sSL https://get.rvm.io | bash -s stable
+curl -sSL https://get.rvm.io | bash -s stable --auto-dotfiles
 source ~/.zshrc
 rvm requirements
 sudo apt-get install libyaml-dev -y
