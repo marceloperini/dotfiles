@@ -36,7 +36,7 @@ sudo apt-get install vim-nox bash-completion zsh tmux irssi mpd ncmpcpp -y
 sudo apt-get install nmap iptraf tcpdump iftop preload alacarte python-pip -y
 sudo apt-get install tlp tlp-rdw tp-smapi-dkms acpi-call-dkms smartmontools -y
 sudo apt-get install ethtool pspp dia zeal wget calibre steam -y
-sudo apt-get install build-essential golang git-core gitg geany powerline -y
+sudo apt-get install build-essential golang git-core gitg geany powerline git-flow -y
 sudo pip install -U pip
 sudo tlp start
 
