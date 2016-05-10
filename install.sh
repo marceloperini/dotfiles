@@ -8,6 +8,7 @@ sudo apt-get update && sudo apt-get upgrade -y
 sudo cp -f ~/.dotfiles/sources.list.d/* /etc/apt/sources.list.d/
 
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0F164EEB
 sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net:80 --recv-keys CD4E8809
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys FC1B6133
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 685D1580
@@ -75,8 +76,8 @@ curl -sSL https://get.rvm.io | bash -s stable --auto-dotfiles
 source ~/.zshrc
 rvm requirements
 sudo apt-get install libyaml-dev -y
-rvm install 2.1.4 --with-openssl-dir=$HOME/.rvm/usr
-rvm --default use 2.1.4
+rvm install 2.3 --with-openssl-dir=$HOME/.rvm/usr
+rvm --default use 2.3
 gem update --system 2.1.9
 gem install rails --version 4.0.8
 sudo apt-get install libxslt-dev libxml2-dev libsqlite3-dev -y
