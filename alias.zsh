@@ -13,5 +13,7 @@ alias ez='vim ~/.zshrc'
 # to use pgUp and pgDn in irssi
 alias irssi='TERM=screen irssi'
 
-alias laravel_environment_start='sudo service apache2 start && sudo service mysql start'
-alias laravel_environment_stop='sudo service apache2 stop && sudo service mysql stop'
+alias rake='noglob rake'
+
+alias postgres_start='sudo service postgresql start'
+alias postgres_stop='sudo service postgresql stop'

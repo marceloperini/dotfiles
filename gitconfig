@@ -1,3 +1,5 @@
 [user]
 	name = Marcelo Perini Veloso\n\n
 	email = marcelo.perini.veloso@gmail.com
+[push]
+	default = matching
