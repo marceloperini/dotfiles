@@ -14,6 +14,10 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys FC1B6133
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 685D1580
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 852541CB
 
+# Spotify
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
+echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+
 ### para rodar jogos na steam
 sudo usermod -a -G video,audio $('whoami')
 sudo dpkg --add-architecture i386
@@ -29,10 +33,10 @@ sudo apt-get install vlc bleachbit shotwell gparted gnome-disk-utility -y
 sudo apt-get install libreoffice-writer libreoffice-calc libreoffice-impress -y
 sudo apt-get install easytag oracle-java8-installer oracle-java8-set-default -y
 sudo apt-get install deluge unace unrar zip unzip p7zip-full p7zip-rar -y
-sudo apt-get install sharutils rar libavcodec-extra -y
+sudo apt-get install sharutils rar libavcodec-extra spotify-client libgtk-3-dev -y
 sudo apt-get install gstreamer0.10-plugins-ugly gstreamer0.10-plugins-bad -y
 sudo apt-get install gstreamer0.10-fluendo-mp3 gstreamer0.10-pulseaudio -y
-sudo apt-get install libgstreamer-perl libgstreamer-interfaces-perl -y
+sudo apt-get install libgstreamer-perl libgstreamer-interfaces-perl gtk2-engines-murrine -y
 sudo apt-get install vim-nox bash-completion zsh tmux irssi mpd ncmpcpp -y
 sudo apt-get install nmap iptraf tcpdump iftop preload alacarte python-pip -y
 sudo apt-get install tlp tlp-rdw tp-smapi-dkms acpi-call-dkms smartmontools -y
@@ -58,6 +62,18 @@ sudo apt-get install mysql-server mysql-server-5.5 mysql-client-5.5 \
     mysql-common -y
 sudo apt-get install libmysqlclient-dev mysql-workbench -y
 sudo update-rc.d -f mysql remove
+
+### temas para o Gnome
+cd $DIR
+git clone https://github.com/horst3180/arc-icon-theme --depth 1 && cd arc-icon-theme
+./autogen.sh --prefix=/usr
+sudo make install
+
+cd $DIR
+git clone https://github.com/horst3180/arc-theme --depth 1 && cd arc-theme
+./autogen.sh --prefix=/usr
+sudo make install
+cd $DIR
 
 ### configurando vim
 sudo apt-get install exuberant-ctags ncurses-term -y
