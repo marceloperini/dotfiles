@@ -93,7 +93,7 @@ source ~/.zshrc
 rvm requirements
 sudo apt-get install libyaml-dev -y
 rvm install 2.3.1 --with-openssl-dir=$HOME/.rvm/usr
-rvm --default use 2.3.1
+rvm use 2.3.1 --default 
 gem update --system 2.1.9
 gem install rails --version 4.2.5.1
 sudo apt-get install libxslt-dev libxml2-dev libsqlite3-dev -y
