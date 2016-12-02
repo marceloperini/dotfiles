@@ -3,3 +3,5 @@
 	email = marcelo.perini.veloso@gmail.com
 [push]
 	default = matching
+[color]
+	ui = true
