@@ -14,6 +14,8 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys FC1B6133
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 685D1580
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 852541CB
 
+wget http://download.opensuse.org/repositories/home:Horst3180/Debian_8.0/Release.key | sudo apt-key add Release.key
+
 # Spotify
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
 echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
@@ -31,7 +33,7 @@ sudo apt-get install ttf-freefont ttf-mscorefonts-installer \
 sudo apt-get install flashplugin-nonfree icedtea-plugin file-roller evince -y
 sudo apt-get install vlc bleachbit shotwell gparted gnome-disk-utility -y
 sudo apt-get install libreoffice-writer libreoffice-calc libreoffice-impress -y
-sudo apt-get install easytag oracle-java8-installer oracle-java8-set-default -y
+sudo apt-get install oracle-java8-installer oracle-java8-set-default -y
 sudo apt-get install deluge unace unrar zip unzip p7zip-full p7zip-rar -y
 sudo apt-get install sharutils rar libavcodec-extra spotify-client libgtk-3-dev -y
 sudo apt-get install gstreamer0.10-plugins-ugly gstreamer0.10-plugins-bad -y
@@ -43,6 +45,10 @@ sudo apt-get install tlp tlp-rdw tp-smapi-dkms acpi-call-dkms smartmontools -y
 sudo apt-get install ethtool pspp dia zeal wget calibre steam silversearcher-ag -y
 sudo apt-get install build-essential golang git-core gitg geany powerline git-flow -y
 sudo pip install -U pip
+
+# install aws eb cli
+pip install --upgrade --user awsebcli
+
 sudo tlp start
 
 ### Instalando oh-my-zsh
@@ -53,7 +59,7 @@ ln -s -f ~/.dotfiles/zshrc ~/.zshrc
 ln -s -f ~/.dotfiles/tmux.conf ~/.tmux.conf
 ln -s -f ~/.dotfiles/alias.zsh ~/.oh-my-zsh/lib/alias.zsh
 
-sudo cp zram /etc/init.d/zram
+sudo cp ~/.dotfiles/zram /etc/init.d/zram
 sudo chmod +x /etc/init.d/zram
 sudo insserv zram
 
@@ -63,16 +69,13 @@ sudo apt-get install mysql-server mysql-server-5.5 mysql-client-5.5 \
 sudo apt-get install libmysqlclient-dev mysql-workbench -y
 sudo update-rc.d -f mysql remove
 
-### temas para o Gnome
-cd $DIR
-git clone https://github.com/horst3180/arc-icon-theme --depth 1 && cd arc-icon-theme
+### arc theme for gnome
+sudo apt-get install arc-theme -y
+sudo apt-get install automake autoconf -y
+cd ~/.dotfiles/arc-icon-theme
 ./autogen.sh --prefix=/usr
 sudo make install
 
-cd $DIR
-git clone https://github.com/horst3180/arc-theme --depth 1 && cd arc-theme
-./autogen.sh --prefix=/usr
-sudo make install
 cd $DIR
 
 ### configurando vim
@@ -95,7 +98,7 @@ sudo apt-get install libyaml-dev -y
 rvm install 2.3.1 --with-openssl-dir=$HOME/.rvm/usr
 rvm use 2.3.1 --default 
 gem update --system 2.1.9
-gem install rails --version 4.2.5.1
+gem install rails --version 4.2.5.1 --no-document
 sudo apt-get install libxslt-dev libxml2-dev libsqlite3-dev -y
 sudo apt-get install postgresql-9.4 -y
 sudo apt-get install pgadmin3 libpq-dev -y
