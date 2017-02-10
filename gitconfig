@@ -1,7 +1,13 @@
 [user]
-	name = Marcelo Perini Veloso\n\n
+	name = Marcelo Perini Veloso
 	email = marcelo.perini.veloso@gmail.com
 [push]
 	default = matching
 [color]
 	ui = true
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+[core]
+	autocrlf = input
