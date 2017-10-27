@@ -11,3 +11,5 @@
 	tool = vimdiff
 [core]
 	autocrlf = input
+[mergetool]
+	keepBackup = false
