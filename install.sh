@@ -4,7 +4,7 @@ DIR=$('pwd')
 sudo apt-get update && sudo apt-get upgrade -y
 
 # Spotify
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0DF731E45CE24F27EEEB1450EFDC8610341D9410
 echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
 sudo apt-get update
 sudo apt-get install spotify-client -y
@@ -51,8 +51,8 @@ ln -s -f ~/.dotfiles/tmux.conf ~/.tmux.conf
 ln -s -f ~/.dotfiles/alias.zsh ~/.oh-my-zsh/lib/alias.zsh
 
 ### instalando mysql ###
-sudo apt-get install mysql-server mysql-server-5.5 mysql-client-5.5 mysql-common -y
-sudo apt-get install libmysqlclient-dev mysql-workbench -y
+sudo apt-get install mysql-server mysql-common libmysqlclient-dev mysql-client -y
+sudo apt-get install mysql-workbench -y
 sudo update-rc.d -f mysql remove
 
 cd $DIR
@@ -73,10 +73,9 @@ curl -sSL https://get.rvm.io | bash -s stable --auto-dotfiles
 source ~/.zshrc
 rvm requirements
 sudo apt-get install libyaml-dev -y
-rvm install 2.3.1 --with-openssl-dir=$HOME/.rvm/usr
-rvm use 2.3.1 --default
-gem update --system 2.1.9
-gem install rails --version 4.2.5.1 --no-document
+rvm install 2.4.2 --with-openssl-dir=$HOME/.rvm/usr
+rvm use 2.4.2 --default
+gem install rails --version 5.1.4 --no-document
 sudo apt-get install libxslt-dev libxml2-dev libsqlite3-dev -y
 sudo apt-get install postgresql-9.5 -y
 sudo apt-get install pgadmin3 libpq-dev -y
