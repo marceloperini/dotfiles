@@ -1,24 +1,29 @@
 #!/bin/bash
 DIR=$('pwd')
 
+# PPAs
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0DF731E45CE24F27EEEB1450EFDC8610341D9410
+echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+sudo add-apt-repository ppa:webupd8team/java -y
+sudo add-apt-repository ppa:nilarimogard/webupd8 -y
+sudo add-apt-repository ppa:zeal-developers/ppa -y
+# PPAs
+
 sudo apt-get update && sudo apt-get upgrade -y
 
 # Spotify
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0DF731E45CE24F27EEEB1450EFDC8610341D9410
-echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
-sudo apt-get update
 sudo apt-get install spotify-client -y
 # Spotify
 
 # Oracle java
-sudo add-apt-repository ppa:webupd8team/java
-sudo apt-get update
 sudo apt-get install oracle-java8-installer oracle-java8-set-default -y
 # Oracle java
 
+# Albert
+sudo apt-get install albert -y
+# Albert
+
 # Zeal Docs
-sudo add-apt-repository ppa:zeal-developers/ppa
-sudo apt-get update
 sudo apt-get install zeal
 # Zeal Docs
 
