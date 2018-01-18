@@ -17,3 +17,6 @@ alias rake='noglob rake'
 
 alias postgres_start='sudo service postgresql start'
 alias postgres_stop='sudo service postgresql stop'
+
+alias pull_master='git pull origin master'
+alias pull_develop='git pull origin develop'
