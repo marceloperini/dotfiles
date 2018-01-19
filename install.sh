@@ -1,42 +1,25 @@
 #!/bin/bash
 DIR=$('pwd')
 
-# PPAs
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0DF731E45CE24F27EEEB1450EFDC8610341D9410
-echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
-sudo add-apt-repository ppa:webupd8team/java -y
-sudo add-apt-repository ppa:nilarimogard/webupd8 -y
-sudo add-apt-repository ppa:zeal-developers/ppa -y
-# PPAs
-
 sudo apt-get update && sudo apt-get upgrade -y
 
 # Spotify
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0DF731E45CE24F27EEEB1450EFDC8610341D9410
+echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+sudo apt-get install dirmngr
 sudo apt-get install spotify-client -y
 # Spotify
 
-# Oracle java
-sudo apt-get install oracle-java8-installer oracle-java8-set-default -y
-# Oracle java
-
-# Albert
-sudo apt-get install albert -y
-# Albert
-
-# Zeal Docs
-sudo apt-get install zeal
-# Zeal Docs
-
-sudo apt-get install synaptic apt-xapian-index gdebi gksu python-gpgme -y
+sudo apt-get install zeal synaptic apt-xapian-index gdebi gksu python-gpgme -y
 sudo apt-get install ttf-freefont ttf-mscorefonts-installer \
     ttf-bitstream-vera ttf-dejavu ttf-liberation -y
-sudo apt-get install flashplugin-nonfree icedtea-plugin file-roller evince -y
+sudo apt-get install icedtea-plugin file-roller evince -y
 sudo apt-get install vlc bleachbit shotwell gparted gnome-disk-utility -y
 sudo apt-get install libreoffice-writer libreoffice-calc libreoffice-impress -y
 sudo apt-get install deluge unace unrar zip unzip p7zip-full p7zip-rar -y
 sudo apt-get install sharutils rar libavcodec-extra libgtk-3-dev -y
-sudo apt-get install vim-nox bash-completion zsh tmux irssi fonts-hack-ttf -y
-sudo apt-get install nmap iptraf tcpdump iftop preload python-pip -y
+sudo apt-get install vim-nox bash-completion zsh tmux irssi fonts-hack-ttf fonts-roboto -y
+sudo apt-get install nmap iptraf tcpdump iftop preload python-pip nautilus-dropbox -y
 sudo apt-get install tlp tlp-rdw tp-smapi-dkms acpi-call-dkms smartmontools -y
 sudo apt-get install ethtool pspp dia wget zram-config calibre steam silversearcher-ag -y
 sudo apt-get install build-essential golang git-core gitg geany powerline git-flow -y
@@ -58,7 +41,7 @@ ln -s -f ~/.dotfiles/alias.zsh ~/.oh-my-zsh/lib/alias.zsh
 ### instalando mysql ###
 sudo apt-get install mysql-server mysql-common libmysqlclient-dev mysql-client -y
 sudo apt-get install mysql-workbench -y
-sudo update-rc.d -f mysql remove
+sudo systemctl disable mysqld.service
 
 cd $DIR
 
@@ -84,7 +67,7 @@ gem install rails --version 5.1.4 --no-document
 sudo apt-get install libxslt-dev libxml2-dev libsqlite3-dev -y
 sudo apt-get install postgresql-9.5 -y
 sudo apt-get install pgadmin3 libpq-dev -y
-sudo update-rc.d -f postgresql remove
+sudo systemctl disable postgresql.service
 
 ### instalando heroku
 wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
