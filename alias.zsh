@@ -20,4 +20,6 @@ alias postgres_stop='sudo service postgresql stop'
 
 alias pull_master='git pull origin master'
 alias pull_develop='git pull origin develop'
+alias push_master='git push origin master'
+alias push_develop='git push origin develop'
 alias fetch_origin='git fetch origin'
