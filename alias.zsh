@@ -18,6 +18,11 @@ alias rake='noglob rake'
 alias postgres_start='sudo service postgresql start'
 alias postgres_stop='sudo service postgresql stop'
 
+# git
+alias add_all='git add --all'
+alias commit='git commit -m'
+alias checkout_master='git checkout master'
+alias checkout_develop='git checkout develop'
 alias pull_master='git pull origin master'
 alias pull_develop='git pull origin develop'
 alias push_master='git push origin master'
