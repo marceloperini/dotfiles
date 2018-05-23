@@ -177,7 +177,7 @@ bindsym $mod+period exec playerctl next
 
 # BACKGROUND
 set $background ~/Pictures/wallpapers/wallhaven-26472_1920x1080.png
-exec_always feh --bg-fill $background
+exec_always feh --bg-max $background
 
 ##### APP RULES ###################################
 
