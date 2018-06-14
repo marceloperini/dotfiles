@@ -1,22 +1,37 @@
+exec_always xrdb -merge ~/.Xresources
+
 set $mod Mod4
+
+# font pango: Hasklig 9
+font pango: Fantasque Sans Mono Regular 9
 
 # APP VARIABLES
 set $browser    firefox
 set $music      spotify
-set $term       urxvt -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"
+set $term urxvt -g 42x12
 set $dmenu      i3-dmenu-desktop
 set $rofi       rofi -show run
+
+# DIR VARIABLES
+set $scripts ~/.scripts
+
+# RESIZE VARIABLES
+set $center move absolute position center
+set $video floating toggle; resize set 1152 648px; $center
 
 # FLOATING
 floating_modifier $mod
 
-# NO WINDOW BORDER
+# DEFAULT BORDER
 for_window [class="^.*"] border pixel 0
 for_window [title="^.*"] border pixel 0
 
+# APPLICATION BORDERS
+for_window [class="URxvt"] border normal 5
+
 # GAP VARIABLES
-set $inner 10
-set $outer 5
+set $inner 25
+set $outer 10
 
 # SET GAPS
 gaps inner $inner
@@ -26,21 +41,26 @@ gaps outer $outer
 bindsym $mod+g exec compton; gaps inner all set $inner; gaps outer all set $outer
 bindsym $mod+Ctrl+g exec pkill compton; gaps inner all set 0; gaps outer all set 0
 
-bindsym $mod+d exec $dmenu
-bindsym $mod+r exec $rofi
+bindsym $mod+r exec $dmenu
+# bindsym $mod+r exec $rofi
 
 # TERMINAL BINDS
-bindsym $mod+Return exec $term
+bindsym $mod+Return exec $term -e tmux
+bindsym $mod+Shift+Return exec $term -e tmux new-session -A -s main
+bindsym $mod+Ctrl+Return exec $term
 bindsym $mod+Shift+Ctrl+Return exec xterm -class blank
+
+# bindsym $mod+Return exec $term
+# bindsym $mod+Shift+Ctrl+Return exec xterm -class blank
 
 # KILL
 bindsym $mod+x kill
+
 # RELOAD
 bindsym $mod+Ctrl+c reload
 # RESTART
 bindsym $mod+Ctrl+r restart
-# EXIT
-bindsym $mod+Ctrl+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
 
 ##### MOVEMENT ####################################
 
@@ -67,15 +87,15 @@ bindsym $mod+Ctrl+Up move up
 bindsym $mod+Ctrl+Right move right
 
 # RESIZE
-bindsym $mod+Shift+h     resize shrink width  10px or 10 ppt
-bindsym $mod+Shift+j     resize shrink height 10px or 10 ppt
-bindsym $mod+Shift+k     resize grow height   10px or 10 ppt
-bindsym $mod+Shift+l     resize grow width    10px or 10 ppt
+bindsym $mod+Shift+h          resize shrink width  10px or 10 ppt
+bindsym $mod+Shift+j          resize shrink height 10px or 10 ppt
+bindsym $mod+Shift+k          resize grow height   10px or 10 ppt
+bindsym $mod+Shift+l          resize grow width    10px or 10 ppt
 
-bindsym $mod+Shift+Left  resize shrink width  10px or 10 ppt
-bindsym $mod+Shift+Down  resize shrink height 10px or 10 ppt
-bindsym $mod+Shift+Up    resize grow height   10px or 10 ppt
-bindsym $mod+Shift+Right resize grow width    10px or 10 ppt
+bindsym $mod+Shift+Left       resize shrink width  10px or 10 ppt
+bindsym $mod+Shift+Down       resize shrink height 10px or 10 ppt
+bindsym $mod+Shift+Up         resize grow height   10px or 10 ppt
+bindsym $mod+Shift+Right      resize grow width    10px or 10 ppt
 
 bindsym $mod+Shift+Ctrl+h     resize shrink width  1px or 1 ppt
 bindsym $mod+Shift+Ctrl+j     resize shrink height 1px or 1 ppt
@@ -85,25 +105,31 @@ bindsym $mod+Shift+Ctrl+l     resize grow width    1px or 1 ppt
 bindsym $mod+Shift+Ctrl+Left  resize shrink width  1px or 1 ppt
 bindsym $mod+Shift+Ctrl+Down  resize shrink height 1px or 1 ppt
 bindsym $mod+Shift+Ctrl+Up    resize grow height   1px or 1 ppt
-bindsym $mod+Shift+Ctrl+Right resize grow width    1px or 1 ppt
-
-# HORIZONTAL SPLIT
-bindsym $mod+b split h
+bindsym $mod+Shift+Ctrl+Right resize grow width 1px or 1 ppt
 
 # VERTICAL SPLIT
 bindsym $mod+v split v
+
+# HORIZONTAL SPLIT
+bindsym $mod+b split h
 
 # FULLSCREEN
 bindsym $mod+f fullscreen toggle
 
 # PAPER MODE
-bindsym $mod+space floating toggle; resize set 426px 676px; move absolute position center
+bindsym $mod+space floating toggle; resize set 426px 670px; $center
+
+# VIDEO MODE
+bindsym $mod+Ctrl+Shift+space $video
 
 # TOGGLE FLOATING
-bindsym $mod+Ctrl+space floating toggle
+bindsym $mod+Ctrl+space floating toggle; $center
 
 # MODE TOGGLE
 bindsym $mod+Shift+space focus mode_toggle
+
+# CENTER FLOATING
+bindsym $mod+c $center
 
 ##### WORKSPACES ##################################
 
@@ -160,35 +186,68 @@ bindsym $mod+Ctrl+Mod2+KP_7 move container to workspace $ws7
 bindsym $mod+Ctrl+Mod2+KP_8 move container to workspace $ws8
 bindsym $mod+Ctrl+Mod2+KP_9 move container to workspace $ws9
 
+##### COLORS #######################################
+
+# XRESOURCES
+set_from_resource $bg background
+
+# CLASS                 BORDER  BACK    TEXT    INDICATOR
+client.focused          $bg     $bg     $bg     $bg
+client.focused_inactive $bg     $bg     $bg     $bg
+client.unfocused        $bg     $bg     $bg     $bg
+client.urgent           $bg     $bg     $bg     $bg
+client.placeholder      $bg     $bg     $bg     $bg
+
+client.background $bg
+
 ##### TOOLS ########################################
 
 # LOCK
-# bindsym $mod+Ctrl+x exec ~/.i3/lock.sh
+# bindsym $mod+Ctrl+x exec slock
 bindsym $mod+Ctrl+x exec i3lock
 
 # SCREENSHOT
-bindsym --release $mod+Print exec scrot -e 'mv $f ~/Pictures/screenshots'
-bindsym --release $mod+Ctrl+Print exec scrot -s -e 'mv $f ~/Pictures/screenshots'
+bindsym --release $mod+Print exec scrot -e 'mv $f ~/pictures/screenshots'
+bindsym --release $mod+Ctrl+Print exec scrot -s -e 'mv $f ~/pictures/screenshots'
+# bindsym --release $mod+Shift+Print exec $scripts/scrop.sh
+
+# CAST
+# bindsym --release $mod+F12 exec $scripts/cast.sh
+# bindsym --release $mod+Ctrl+F12 exec $scripts/cast.sh -s
+bindsym $mod+F11 exec pkill ffmpeg
 
 # MEDIA CONTROLS
 bindsym $mod+slash  exec playerctl play-pause
 bindsym $mod+comma  exec playerctl previous
 bindsym $mod+period exec playerctl next
 
+bindsym $mod+Ctrl+slash  exec pactl set-sink-mute 0 toggle
+bindsym $mod+Ctrl+comma  exec amixer sset Master 5%-
+bindsym $mod+Ctrl+period exec amixer sset Master 5%+
+
+# ROFI
+# bindsym $mod+d exec rofi -show window -theme list
+bindsym $mod+d exec rofi -show drun -theme list
+# bindsym $mod+Shift+d exec $scripts/rofimoji/rofimoji.py
+
+
 # BACKGROUND
-set $background ~/Pictures/wallpapers/wallhaven-26472_1920x1080.png
-exec_always feh --bg-max $background
+# set $background ~/Pictures/wallpapers/wallhaven-26472_1920x1080.png
+# exec_always feh --bg-max $background
+set_from_resource $g1 color4
+set_from_resource $g2 color12
+exec_always hsetroot -add "$g1" -add "$g2" -gradient 0
+
+# COUNTER
+# bindsym $mod+grave exec $scripts/counter.sh
 
 ##### APP RULES ###################################
 
-# GIMP RULES
-for_window [title="GIMP Startup"] move workspace $ws4
-for_window [window_role="gimp-dock"] floating disable; move left; resize shrink width 50 px or 50ppt
-for_window [window_role="gimp-toolbox"] floating disable; move right; resize grow width 30 px or 30ppt
-assign [class="Gimp"] $ws4
+# YOUTUBE RULES
+for_window [instance="youtube.com"] floating enable; $video
 
 # TWITCH RULES
-assign [instance="twitch.tv"] $ws5
+for_window [instance="twitch.tv"] floating enable; $center; set resize 1270px 562px
 
 # SLACK RULES
 assign [class="slack"] $ws6
@@ -206,12 +265,15 @@ for_window [instance="tweetdeck.twitter.com"] fullscreen enable
 ##### APP BINDS ###################################
 
 set $app chromium --app
-bindsym $mod+n       exec ~/./beaker_start
-bindsym $mod+Shift+n exec $browser
+
+# bindsym $mod+n       exec $scripts/direct.sh
+bindsym $mod+Ctrl+n  exec $scripts/search.sh
+# bindsym $mod+Shift+n exec $scripts/bookmarks.sh
 
 bindsym $mod+m       exec $music
 bindsym $mod+Ctrl+m  exec discord
 bindsym $mod+Ctrl+s  exec slack
+bindsym $mod+Ctrl+b exect $browser
 
 bindsym $mod+t       exec $app=https://tweetdeck.twitter.com
 bindsym $mod+Ctrl+t  exec $app=https://twitch.tv
@@ -226,7 +288,7 @@ bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
 ##### LAUNCH ######################################
 
 # STARTUP
-exec --no-startup-id .i3/lock.sh
+# exec --no-startup-id .i3/lock.sh
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id clipit
@@ -240,7 +302,6 @@ bar {
   i3bar_command i3bar
   status_command i3status
   tray_output primary
-  font pango:Hasklug Nerd Font Mono 9
 
   bindsym button4 nop
 	bindsym button5 nop
@@ -279,3 +340,4 @@ mode "$mode_system" {
 
 # RELOAD
 exec_always --no-startup-id compton
+exec_always xrdb -merge ~/.Xresources
