@@ -1,0 +1,13 @@
+command=/usr/libexec/i3blocks/$BLOCK_NAME
+separator_block_width=15
+color=#F3F4F5
+markup=none
+
+[disk-home]
+command=df -h -P -l $HOME | awk '/\/.*/ { print $3; exit 0 }'
+interval=30
+
+[time]
+command=date '+%a, %d %b %H:%M'
+interval=5
+
