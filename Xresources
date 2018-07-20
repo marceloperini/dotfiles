@@ -1,4 +1,4 @@
-!!!!! .Xresources / RESLOVED !!!!!!!!!!!!!!!!!!!!!! 
+!!!!! .Xresources / RESLOVED !!!!!!!!!!!!!!!!!!!!!!
 
 ! MOLOKAI
 !*foreground:   #f8f8f8
@@ -55,5 +55,4 @@ URxvt*borderWidth: 0
 URxvt*internalBorder: 0
 
 ! FONT
-URxvt*font: xft:Fantasque Sans Mono:size=10
-
+URxvt*font: xft:Fira Code Retina:size=10

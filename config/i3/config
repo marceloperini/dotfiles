@@ -2,8 +2,7 @@ exec_always xrdb -merge ~/.Xresources
 
 set $mod Mod4
 
-# font pango: Hasklig 9
-font pango: Fantasque Sans Mono Regular 9
+font pango: Fira Code Retina 9
 
 # APP VARIABLES
 set $browser    firefox
@@ -50,9 +49,6 @@ bindsym $mod+Shift+Return exec $term -e tmux new-session -A -s main
 bindsym $mod+Ctrl+Return exec $term
 bindsym $mod+Shift+Ctrl+Return exec xterm -class blank
 
-# bindsym $mod+Return exec $term
-# bindsym $mod+Shift+Ctrl+Return exec xterm -class blank
-
 # KILL
 bindsym $mod+x kill
 
@@ -60,7 +56,6 @@ bindsym $mod+x kill
 bindsym $mod+Ctrl+c reload
 # RESTART
 bindsym $mod+Ctrl+r restart
-
 
 ##### MOVEMENT ####################################
 
