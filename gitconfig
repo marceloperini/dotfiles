@@ -1,7 +1,7 @@
 [user]
 	name = Marcelo Perini Veloso
 	email = marcelo.perini.veloso@gmail.com
-	signingkey = 9CE04C6A0925EB03
+	signingkey = 55012066462FF0D0
 [push]
 	default = matching
 [color]
@@ -16,3 +16,5 @@
 	keepBackup = false
 [commit]
 	gpgsign = true
+[gpg]
+	program = gpg
