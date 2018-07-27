@@ -25,6 +25,7 @@ alias postgres_stop='sudo service postgresql stop'
 # git alias
 alias add_all='git add --all'
 alias commit='git commit -m'
+alias status='git status'
 alias checkout_master='git checkout master'
 alias checkout_develop='git checkout develop'
 alias pull_master='git pull origin master'
