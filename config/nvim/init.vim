@@ -47,6 +47,7 @@ Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
+Plug 'ctrlpvim/ctrlp.vim' 
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -127,7 +128,6 @@ Plug 'racer-rust/vim-racer'
 " Rust.vim
 Plug 'rust-lang/rust.vim'
 
-
 "*****************************************************************************
 "*****************************************************************************
 
@@ -152,14 +152,15 @@ set fileencodings=utf-8
 set bomb
 set binary
 
+set autowrite
 
-"" Fix backspace indent
+set copyindent cindent smartindent
+set smarttab shiftround expandtab
+
 set backspace=indent,eol,start
 
 "" Tabs. May be overriten by autocmd rules
-set tabstop=4
-set softtabstop=0
-set shiftwidth=4
+set tabstop=2 shiftwidth=2 softtabstop=2
 set expandtab
 
 "" Map leader to ,
@@ -191,6 +192,24 @@ let g:session_directory = "~/.config/nvim/session"
 let g:session_autoload = "no"
 let g:session_autosave = "no"
 let g:session_command_aliases = 1
+
+" Ctrlp settings
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
+let g:ctrlp_max_height = 30
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+set wildignore+=*.pyc
+set wildignore+=*_build/*
+set wildignore+=*/coverage/*
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
 
 "*****************************************************************************
 "" Visual Settings
@@ -231,11 +250,7 @@ else
   let g:indentLine_concealcursor = 0
   let g:indentLine_char = '┆'
   let g:indentLine_faster = 1
-
-
 endif
-
-
 
 "" Disable the blinking cursor.
 set gcr=a:blinkon0
@@ -328,6 +343,7 @@ endif
 "*****************************************************************************
 "" Autocmd Rules
 "*****************************************************************************
+
 "" The PC is fast enough, do syntax highlight syncing from start unless 200 lines
 augroup vimrc-sync-fromstart
   autocmd!
@@ -358,6 +374,14 @@ set autoread
 "*****************************************************************************
 "" Mappings
 "*****************************************************************************
+
+let g:unite_force_overwrite_statusline = 0
+let g:vimfiler_force_overwrite_statusline = 0
+let g:vimshell_force_overwrite_statusline = 0
+
+set synmaxcol=500
+set ts=2 sw=2 et
+let g:indent_guides_start_level = 2
 
 "" Split
 noremap <Leader>h :<C-u>split<CR>
@@ -392,6 +416,16 @@ map <Leader>v <esc>:vnew<CR>
 
 " Map sort function to a key
 vnoremap <Leader>s :sort<CR>
+
+" Make <C-l> clear the highlight
+nnoremap <silent> <C-l> :nohls<CR>
+
+" Indent all file
+noremap <silent> <leader>ff :call Preserve('normal gg=G')<CR>
+
+" Easier moving of code blocks
+vnoremap < <gv " better indentation
+vnoremap > >gv " better indentation
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
