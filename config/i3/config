@@ -29,7 +29,7 @@ for_window [title="^.*"] border pixel 0
 for_window [class="URxvt"] border normal 5
 
 # GAP VARIABLES
-set $inner 25
+set $inner 10
 set $outer 10
 
 # SET GAPS
