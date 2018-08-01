@@ -10,7 +10,7 @@ endif
 let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
 
 let g:vim_bootstrap_langs = "c,html,javascript,php,python,rust"
-let g:vim_bootstrap_editor = "nvim"				" nvim or vim
+let g:vim_bootstrap_editor = "nvim"
 
 if !filereadable(vimplug_exists)
   if !executable("curl")
@@ -232,7 +232,7 @@ else
   let g:indentLine_char = '┆'
   let g:indentLine_faster = 1
 
-  
+
 endif
 
 
@@ -276,17 +276,26 @@ cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
 
-"" NERDTree configuration
-let g:NERDTreeChDirMode=2
-let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
-let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
-let g:NERDTreeShowBookmarks=1
-let g:nerdtree_tabs_focus_on_files=1
-let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
-let g:NERDTreeWinSize = 50
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
-nnoremap <silent> <F2> :NERDTreeFind<CR>
-nnoremap <silent> <F3> :NERDTreeToggle<CR>
+" NERDTree
+let NERDTreeWinPos="left"
+let NERDTreeHighlightCursorline=1
+let NERDTreeAutoDeleteBuffer=1
+let NERDTreeMinimalUI=1
+
+" If possible open a NERDTreeMirror
+function! OpenNERDTreeMirror()
+  try
+    :NERDTreeToggle | NERDTreeMirror
+  catch /^Vim\%((\a\+)\)\=:E121/
+    :NERDTree
+  catch
+    redraw
+  endtry
+endfunction
+
+noremap <silent> <C-\> :call OpenNERDTreeMirror()<CR>
+nnoremap <silent> <leader>fl :NERDTreeFind<CR>
+command! E exec ":NERDTree ".expand('%:p')
 
 " grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
@@ -370,10 +379,19 @@ nnoremap <leader>ss :SaveSession<Space>
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
-"" Tabs
-nnoremap <Tab> gt
-nnoremap <S-Tab> gT
-nnoremap <silent> <S-t> :tabnew<CR>
+" Easier moving between tabs
+map <Leader>n <esc>:tabprevious<CR>
+map <Leader>m <esc>:tabnext<CR>
+
+" Create new tab
+map <Leader>t <esc>:tabnew<CR>
+
+" Divide tab
+map <Leader>d <esc>:new<CR>
+map <Leader>v <esc>:vnew<CR>
+
+" Map sort function to a key
+vnoremap <Leader>s :sort<CR>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
