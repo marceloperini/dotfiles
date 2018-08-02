@@ -152,12 +152,26 @@ set fileencodings=utf-8
 set bomb
 set binary
 
+set cursorline colorcolumn=80
+set cursorline!
+set lazyredraw
+
+set switchbuf=useopen,usetab,newtab
+
+set showmatch
+
 set autowrite
+
+set list listchars=tab:▸\ ,trail:·,nbsp:·
+
+set virtualedit=block
 
 set copyindent cindent smartindent
 set smarttab shiftround expandtab
 
 set backspace=indent,eol,start
+
+set nowrap wrapscan showbreak=..
 
 "" Tabs. May be overriten by autocmd rules
 set tabstop=2 shiftwidth=2 softtabstop=2
@@ -380,12 +394,12 @@ let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
 
 set synmaxcol=500
-set ts=2 sw=2 et
+"set ts=2 sw=2 et
 let g:indent_guides_start_level = 2
 
 "" Split
-noremap <Leader>h :<C-u>split<CR>
-noremap <Leader>v :<C-u>vsplit<CR>
+noremap <Leader>h :split<CR>
+noremap <Leader>v :vsplit<CR>
 
 "" Git
 noremap <Leader>ga :Gwrite<CR>
