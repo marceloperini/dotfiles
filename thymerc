@@ -1,1 +1,9 @@
 set :tmux, true
+
+before do
+  `notify-send "Start pomodoro"`
+end
+
+after do |seconds_left|
+  `notify-send "Pomodoro time is ending."`
+end
