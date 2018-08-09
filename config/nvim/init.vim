@@ -361,6 +361,52 @@ if !exists('*s:setupWrapping')
   endfunction
 endif
 
+let g:keep_trailing_spaces = 0
+command! -nargs=? KeepTrailingSpaces
+      \ if <q-args> == "" |
+      \   let g:keep_trailing_spaces = 1 |
+      \ else |
+      \   let g:keep_trailing_spaces = str2nr(<q-args>) |
+      \ endif
+
+aug remove_trailing_spaces
+  au!
+  au BufWritePre *
+        \ if ! g:keep_trailing_spaces |
+        \   call Preserve('%s/\s\+$//e') |
+        \   call Preserve('%s/\v($\n\s*)+%$//e') |
+        \ endif
+aug END
+
+" Executes a command and keeps the current view
+function! Preserve(command)
+  setlocal lazyredraw
+  let last_search=@/
+
+  let last_view = winsaveview()
+  silent execute a:command
+  call winrestview(last_view)
+
+  let @/=last_search
+  redraw
+  setlocal nolazyredraw
+endfunction
+
+" Executes a global function and keeps the current view
+function! PreserveFN(fn, ...)
+  if a:0
+    let args = "(".join(a:000, ",").")"
+  else
+    let args = "()"
+  end
+  let func = string(function(a:fn))
+
+  call Preserve("let g:preservedReturn =
+  ".func.args)
+
+  return g:preservedReturn
+endfunction
+
 "*****************************************************************************
 "" Autocmd Rules
 "*****************************************************************************
