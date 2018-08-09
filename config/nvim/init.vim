@@ -50,6 +50,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'kristijanhusak/vim-carbon-now-sh'
+Plug 'tpope/vim-rails'
+Plug 'vim-ruby/vim-ruby'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
