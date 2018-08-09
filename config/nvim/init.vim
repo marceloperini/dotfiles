@@ -52,6 +52,8 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'kristijanhusak/vim-carbon-now-sh'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'KabbAmine/zeavim.vim'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -169,7 +171,8 @@ set showmatch
 
 set autowrite
 
-set list listchars=tab:▸\ ,trail:·,nbsp:·
+set showbreak=↪\
+set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
 
 set virtualedit=block
 
@@ -239,19 +242,26 @@ syntax on
 set ruler
 set number
 
+color dracula
+
 set background=dark
-" let no_buffers_menu=1
-" if !exists('g:not_finish_vimplug')
-"   colorscheme hybrid
-" endif
 
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
 endif
 
-let g:lightline = {}
-let g:lightline.colorscheme = 'deus'
+let g:lightline = {
+  \   'colorscheme': 'deus',
+  \   'active': {
+  \     'left': [ [ 'mode', 'paste' ],
+  \             [ 'gitbranch', 'readonly', 'pathname', 'filename', 'modified' ] ]
+  \   },
+  \   'component_function': {
+  \     'gitbranch': 'fugitive#head',
+  \     'pathname': 'PathFileName',
+  \   },
+  \ }
 
 set mousemodel=popup
 set t_Co=256
@@ -407,6 +417,10 @@ function! PreserveFN(fn, ...)
   return g:preservedReturn
 endfunction
 
+function! PathFileName ()
+  return expand('%:p:h')
+endfunction
+
 "*****************************************************************************
 "" Autocmd Rules
 "*****************************************************************************
@@ -475,7 +489,7 @@ map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
 
 " Create new tab
-map <Leader>t <esc>:tabnew<CR>
+map <silent> <leader>t <esc>:tabnew<CR>
 
 " Divide tab
 map <Leader>d <esc>:new<CR>
