@@ -221,10 +221,7 @@ bindsym $mod+Ctrl+comma  exec amixer sset Master 5%-
 bindsym $mod+Ctrl+period exec amixer sset Master 5%+
 
 # ROFI
-# bindsym $mod+d exec rofi -show window -theme list
 bindsym $mod+d exec rofi -show drun -theme list
-# bindsym $mod+Shift+d exec $scripts/rofimoji/rofimoji.py
-
 
 # BACKGROUND
 # set $background ~/Pictures/wallpapers/wallhaven-26472_1920x1080.png
@@ -232,9 +229,6 @@ bindsym $mod+d exec rofi -show drun -theme list
 set_from_resource $g1 color4
 set_from_resource $g2 color12
 exec_always hsetroot -add "$g1" -add "$g2" -gradient 0
-
-# COUNTER
-# bindsym $mod+grave exec $scripts/counter.sh
 
 ##### APP RULES ###################################
 
