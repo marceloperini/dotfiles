@@ -55,6 +55,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'KabbAmine/zeavim.vim'
 Plug 'tpope/vim-surround'
+Plug 'ngmy/vim-rubocop'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
