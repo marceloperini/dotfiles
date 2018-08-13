@@ -215,7 +215,7 @@ endif
 
 " session management
 let g:session_directory = "~/.config/nvim/session"
-let g:session_autoload = "no"
+let g:session_autoload = "yes"
 let g:session_autosave = "no"
 let g:session_command_aliases = 1
 
@@ -241,12 +241,31 @@ let g:ctrlp_custom_ignore = {
 "" Visual Settings
 "*****************************************************************************
 syntax on
+
 set ruler
 set number
+set splitright splitbelow
+set background=dark
+set mousemodel=popup
+set t_Co=256
+set guioptions=egmrti
+set gfn=Monospace\ 10
+"" Disable the blinking cursor.
+set gcr=a:blinkon0
+set scrolloff=3
+
+"" Status bar
+set laststatus=2
+
+"" Use modeline overrides
+set modeline
+set modelines=10
+
+set title
+set titleold="Terminal"
+set titlestring=%F
 
 color dracula
-
-set background=dark
 
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
@@ -265,11 +284,6 @@ let g:lightline = {
   \   },
   \ }
 
-set mousemodel=popup
-set t_Co=256
-set guioptions=egmrti
-set gfn=Monospace\ 10
-
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
     set guifont=Menlo:h12
@@ -284,21 +298,6 @@ else
   let g:indentLine_char = '┆'
   let g:indentLine_faster = 1
 endif
-
-"" Disable the blinking cursor.
-set gcr=a:blinkon0
-set scrolloff=3
-
-"" Status bar
-set laststatus=2
-
-"" Use modeline overrides
-set modeline
-set modelines=10
-
-set title
-set titleold="Terminal"
-set titlestring=%F
 
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
@@ -630,7 +629,7 @@ let g:javascript_enable_domhtmlcss = 1
 " vim-javascript
 augroup vimrc-javascript
   autocmd!
-  autocmd FileType javascript set tabstop=4|set shiftwidth=4|set expandtab softtabstop=4
+  autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2
 augroup END
 
 
