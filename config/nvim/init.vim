@@ -56,6 +56,9 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'KabbAmine/zeavim.vim'
 Plug 'tpope/vim-surround'
 Plug 'ngmy/vim-rubocop'
+Plug 'thoughtbot/vim-rspec'
+Plug 'tpope/vim-bundler'
+Plug 'ck3g/vim-change-hash-syntax'
 Plug 'slashmili/alchemist.vim'
 Plug 'elixir-editors/vim-elixir'
 
