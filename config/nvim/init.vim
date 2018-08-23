@@ -250,8 +250,8 @@ syntax on
 set ruler
 set number
 set splitright splitbelow
-set background=dark
-set mousemodel=popup
+" set background=dark
+set mousehide mouse=a
 set t_Co=256
 set guioptions=egmrti
 set gfn=Monospace\ 10
