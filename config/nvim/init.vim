@@ -42,8 +42,8 @@ Plug 'vim-scripts/grep.vim'
 Plug 'vim-scripts/CSApprox'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'Raimondi/delimitMate'
-Plug 'majutsushi/tagbar'
 Plug 'scrooloose/syntastic'
+Plug 'majutsushi/tagbar'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
@@ -251,7 +251,7 @@ set ruler
 set number
 set splitright splitbelow
 set background=dark
-set mousemodel=popup
+set mousehide mouse=a
 set t_Co=256
 set guioptions=egmrti
 set gfn=Monospace\ 10
@@ -312,6 +312,33 @@ nnoremap N Nzzzv
 if exists("*fugitive#statusline")
   set statusline+=%{fugitive#statusline()}
 endif
+
+let g:syntastic_check_on_open = 1
+let g:syntastic_enable_balloons = 0
+let g:syntastic_auto_jump = 0
+let g:syntastic_error_symbol = 'e:'
+let g:syntastic_warning_symbol = 'w:'
+let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [
+            \ 'ruby',
+            \ 'elixir',
+            \ 'js',
+            \ 'css',
+            \ 'vim',
+            \ 'python'] }
+
+hi! link SyntasticWarningSign Search
+hi! link SyntasticErrorSign ErrorMsg
+let g:syntastic_stl_format = ""
+      \ . "%W{"
+      \ . "%#STLWarningAlert#"
+      \ . "\ [".g:syntastic_warning_symbol." %fw(%w)]"
+      \ . "}"
+      \ . "%B{\ }"
+      \ . "%E{"
+      \ . "%#STLErrorAlert#"
+      \ . "\ [".g:syntastic_error_symbol." %fe(%e)]"
+      \ . "}\ "
+      \ . "%*"
 
 "*****************************************************************************
 "" Abbreviations
@@ -528,12 +555,6 @@ set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
 let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
 
-" The Silver Searcher
-if executable('ag')
-  let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
-  set grepprg=ag\ --nogroup\ --nocolor
-endif
-
 " ripgrep
 if executable('rg')
   let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
@@ -550,15 +571,6 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:UltiSnipsEditSplit="vertical"
-
-" syntastic
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_style_error_symbol = '✗'
-let g:syntastic_style_warning_symbol = '⚠'
-let g:syntastic_auto_loc_list=1
-let g:syntastic_aggregate_errors = 1
 
 " Tagbar
 nmap <silent> <F4> :TagbarToggle<CR>
@@ -660,9 +672,6 @@ let g:jedi#rename_command = "<leader>r"
 let g:jedi#show_call_signatures = "0"
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#smart_auto_mappings = 0
-
-" syntastic
-let g:syntastic_python_checkers=['python', 'flake8']
 
 " Syntax highlight
 " Default highlight is better than polyglot
