@@ -55,4 +55,4 @@ URxvt*borderWidth: 0
 URxvt*internalBorder: 0
 
 ! FONT
-URxvt*font: xft:Fira Code Medium:size=10
+URxvt*font: xft:Fira Code Medium:size=9

@@ -113,3 +113,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
+
+export LD_LIBRARY_PATH=/usr/lib/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
