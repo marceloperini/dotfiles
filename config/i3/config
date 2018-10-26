@@ -285,29 +285,29 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # start i3bar to display a workspace bar
-bar {
-  position top
-  i3bar_command i3bar
-  status_command i3blocks
-  tray_output primary
+#bar {
+#  position top
+#  i3bar_command i3bar
+#  status_command i3blocks
+#  tray_output primary
 
-  bindsym button4 nop
-  bindsym button5 nop
+#  bindsym button4 nop
+#  bindsym button5 nop
 
-  strip_workspace_numbers yes
+#  strip_workspace_numbers yes
 
-  colors {
-    background #282a36
-    statusline #f8f8f2
-    separator #666666
+#  colors {
+#    background #282a36
+#    statusline #f8f8f2
+#    separator #666666
 
-    focused_workspace  #f8f8f8 #f8f8f8 #282a36
-    active_workspace   #595B5B #353836 #FDF6E3
-    inactive_workspace #282a36 #282a36 #f8f8f8
-    binding_mode       #16a085 #2C2C2C #F9FAF9
-    urgent_workspace   #595B5B #FDF6E3 #E5201D
-  }
-}
+#    focused_workspace  #f8f8f8 #f8f8f8 #282a36
+#    active_workspace   #595B5B #353836 #FDF6E3
+#    inactive_workspace #282a36 #282a36 #f8f8f8
+#    binding_mode       #16a085 #2C2C2C #F9FAF9
+#    urgent_workspace   #595B5B #FDF6E3 #E5201D
+#  }
+#}
 
 # Set shut down, restart and locking features
 bindsym $mod+0 mode "$mode_system"
@@ -329,7 +329,7 @@ mode "$mode_system" {
 
 # STARTUP
 # exec --no-startup-id .i3/lock.sh
-# exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id compton
 exec_always xrdb -merge ~/.Xresources
 

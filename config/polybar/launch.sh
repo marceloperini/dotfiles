@@ -1,0 +1,1 @@
+/home/marcelo/.config/polybar/launch.sh
