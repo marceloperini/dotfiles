@@ -33,6 +33,7 @@ cyan-alt    =  ${xrdb:color14}
 white       =  ${xrdb:color7}
 white-alt   =  ${xrdb:color15}
 
+
 ;**********************************************************
 ;
 ;                       GLOBAL WM SETTINGS
@@ -47,10 +48,10 @@ margin-bottom = 0
 ;                       BAR SETTINGS
 ;
 ;********************************************************
-[bar/base]
-monitor   = ${env:MONITOR:eDP1}
-top    = true
-width     = 100%
+[bar/top]
+monitor   = ${env:MONITOR:eDP-1}
+bottom    = true
+width     = 1920
 height    = 15
 offset-x  = 0
 offset-y  = 0
@@ -70,20 +71,19 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = Fira Code Medium:pixelsize=8;3
-font-1 = FuraCode Nerd Font:pixelsize=11;3
-;font-2 = Siji:pixelsize=11;3
+font-0 = lucy tewi:pixelsize=8;3
+font-1 = Siji:pixelsize=11;3
+;font-1 = Material Icons:antialia=false:size=11;4
 
 tray-position = right
 tray-padding = 1
 tray-transparent = true
 tray-background = #000000
 
-modules-left = i3 wlan
-modules-center =  temperature cpu memory
-modules-right = backlight battery0 battery1 date
+modules-left = menu i3 vpn wlan
+modules-center = temperature cpu memory
+modules-right = mail date battery
 
-wm-restack = i3
 
 ;**********************************************************
 ;
@@ -116,50 +116,40 @@ label-visible-foreground = #666
 ;label-visible-background = ${colors.bg-alt}
 label-visible-padding = 0
 
-[module/backlight]
-type = internal/backlight
-
-; Use the following command to list available cards:
-; ; $ ls -1 /sys/class/backlight/
-card = intel_backlight
-format-prefix = " "
-format-prefix-foreground = ${colors.blue}
-label = "%percentage%% "
-
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.blue}
-label = "%percentage%% "
+label = "%percentage% "
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.green}
-label = "%percentage_used%% "
+label = "%percentage_used% "
 
 [module/wlan]
 type = internal/network
-interface = wlp3s0
+interface = wlo1
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
 
-label-connected = " %essid% "
+label-connected = "%essid% "
 label-connected-foreground = ${colors.fg}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.fg-alt}
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
 ramp-signal-foreground = ${colors.red}
 
-[module/battery0]
+[module/battery]
 type = internal/battery
 battery = BAT0
 adapter = ADP1
@@ -176,11 +166,9 @@ format-full-prefix-foreground = ${colors.cyan}
 ;format-charging-prefix = 
 ;format-charging-prefix-foreground = ${colors.red}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
 ramp-capacity-foreground = ${colors.yellow}
 
 label-charging = "Charging %percentage%% "
@@ -189,43 +177,6 @@ label-charging-foreground = ${colors.fg}
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-foreground = ${colors.red}
-animation-charging-framerate = 750
-
-[module/battery1]
-type = internal/battery
-battery = BAT1
-adapter = ADP1
-full-at = 100
-
-label-discharging = "%percentage%% "
-format-charging = <animation-charging> <label-charging>
-format-discharging = <ramp-capacity> <label-discharging>
-
-label-full = " full "
-format-full-prefix = 
-format-full-prefix-foreground = ${colors.cyan}
-
-;format-charging-prefix = 
-;format-charging-prefix-foreground = ${colors.red}
-
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-ramp-capacity-foreground = ${colors.yellow-alt}
-
-label-charging = "Charging %percentage%% "
-label-charging-foreground = ${colors.fg}
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
 animation-charging-foreground = ${colors.red}
 animation-charging-framerate = 750
 
@@ -241,16 +192,24 @@ label = "%temperature% "
 label-warn = "%temperature% "
 label-warn-foreground = ${colors.red}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
 ramp-foreground = ${colors.cyan}
+
+[module/menu]
+type = custom/text
+
+content = ""
+content-foreground = ${colors.cyan}
+;content-background = ${colors.red}
+click-left = ~/.config/popups/todo/todo
 
 [module/mail]
 type = custom/script
 interval = 1200
 format = " <label> "
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.red}
 exec = ~/.config/polybar/mail
 exec-if = "ping -q -w 2 -c 1 8.8.8.8 > /dev/null"
@@ -267,7 +226,7 @@ time-alt = " %H:%M "
 
 label = %date%%time%
 
-format-prefix = 
+format-prefix = 
 ;format-foreground = ${colors.magenta}
 format-prefix-foreground = ${colors.magenta}
 
@@ -275,34 +234,8 @@ format-prefix-foreground = ${colors.magenta}
 type = custom/script
 interval = 1200
 format = "<label> "
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.magenta}
 exec = ~/.config/polybar/vpn
-
-[module/pulseaudio]
-type = internal/pulseaudio
-
-; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
-; If not, uses default sink
-sink = alsa_output.pci-0000_12_00.3.analog-stereo
-
-; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
-; Default: true
-use-ui-max = true
-
-interval = 5
-
-format-volume = <ramp-volume> <label-volume>
-
-format = " %percentage%% "
-
-label-muted =  muted
-label-muted-foreground = #666
-
-; Only applies if <ramp-volume> is used
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-ramp-foreground = ${colors.blue}
 
 ; vim:ft=dosini
