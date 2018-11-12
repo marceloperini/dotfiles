@@ -223,7 +223,7 @@ bindsym $mod+Ctrl+comma  exec amixer sset Master 5%-
 bindsym $mod+Ctrl+period exec amixer sset Master 5%+
 
 # ROFI
-bindsym $mod+d exec rofi -show drun -theme list
+bindsym $mod+d exec rofi -show drun
 
 # BACKGROUND
 # set $background ~/Pictures/wallpapers/wallhaven-26472_1920x1080.png
