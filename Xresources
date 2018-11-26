@@ -37,3 +37,5 @@ URxvt*internalBorder: 0
 
 ! FONT
 URxvt*font: xft:Fira Code Medium:size=9
+
+URxvt.perl-ext-common: ...,font-size
