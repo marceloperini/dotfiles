@@ -287,11 +287,8 @@ exec-if = "ping -q -w 2 -c 1 8.8.8.8 > /dev/null"
 type = internal/date
 interval = 5
 
-date =
-date-alt = " %a %d %b %Y"
-
+date = " %a %d %b %Y"
 time = " %H:%M "
-time-alt = " %H:%M "
 
 label = %date%%time%
 
