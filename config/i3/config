@@ -5,12 +5,12 @@ set $mod Mod4
 font pango: Fira Code Medium 9
 
 # APP VARIABLES
-set $browser    firefox
-set $music      spotify
-set $term urxvt -g 42x12
-set $rofi-drun       rofi -show drun
-set $rofi-window     rofi -show window
-set $rofi-ssh        rofi -show ssh
+set $browser      firefox
+set $music        spotify
+set $term         termite
+set $rofi-drun    rofi -show drun
+set $rofi-window  rofi -show window
+set $rofi-ssh     rofi -show ssh
 
 # DIR VARIABLES
 set $scripts ~/.scripts
@@ -43,8 +43,8 @@ bindsym $mod+g exec compton; gaps inner all set $inner; gaps outer all set $oute
 bindsym $mod+Ctrl+g exec pkill compton; gaps inner all set 0; gaps outer all set 0
 
 # TERMINAL BINDS
-bindsym $mod+Return exec $term -e tmux
-bindsym $mod+Shift+Return exec $term -e tmux new-session -A -s main
+bindsym $mod+Return exec $term -e 'tmux'
+bindsym $mod+Shift+Return exec $term -e 'tmux new-session -A -s main'
 bindsym $mod+Ctrl+Return exec $term
 bindsym $mod+Shift+Ctrl+Return exec xterm -class blank
 

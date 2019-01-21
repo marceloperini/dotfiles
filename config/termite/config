@@ -1,0 +1,76 @@
+[options]
+transparency = 1.0
+font = Fira Code Medium 9
+use_xft = true
+allow_bold = true
+audible_bell = false
+clickable_url = true
+dynamic_title = true
+#fullscreen = true
+#geometry = 640x480
+icon_name = terminal
+#mouse_autohide = false
+#scroll_on_output = false
+#scroll_on_keystroke = true
+# Length of the scrollback buffer, 0 disabled the scrollback buffer
+# and setting it to a negative value means "infinite scrollback"
+scrollback_lines = 999999
+#search_wrap = true
+urgent_on_bell = true
+
+# $BROWSER is used by default if set, with xdg-open as a fallback
+browser = firefox
+
+# "system", "on" or "off"
+cursor_blink = system
+
+# "block", "underline" or "ibeam"
+cursor_shape = ibeam
+
+# Hide links that are no longer valid in url select overlay mode
+#filter_unmatched_urls = true
+
+# Emit escape sequences for extra modified keys
+#modify_other_keys = false
+
+# set size hints for the window
+#size_hints = false
+
+[colors]
+foreground = #f8f8f2
+background = #262626
+foreground_bold = #D8DEE9
+cursor = #D8DEE9
+cursor_foreground = #2E3440
+highlight = #4C566A
+
+color0:       #6272a4
+color1:       #ff5555
+color2:       #50fa7b
+color3:       #f1fa8c
+color4:       #bd93f9
+color5:       #ff79c6
+color6:       #8be9fd
+color7:       #bfbfbf
+color8:       #4d4d4d
+color9:       #ff6e67
+color10:      #5af78e
+color11:      #f4f99d
+color12:      #caa9fa
+color13:      #ff92d0
+color14:      #9aedfe
+color15:      #e6e6e6
+wall1:        #c79081
+wall2:        #dfa579
+
+[hints]
+font = Monospace 12
+foreground = #f8f8f2
+background = #262626
+active_foreground = #f8f8f2
+active_background = #262626
+padding = 2
+border = #3f3f3f
+border_width = 0.5
+roundness = 2.0
+
