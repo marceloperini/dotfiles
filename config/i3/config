@@ -23,16 +23,12 @@ set $video floating toggle; resize set 1152 648px; $center
 floating_modifier $mod
 
 # DEFAULT BORDER
-for_window [class="^.*"] border pixel 2
-for_window [title="^.*"] border pixel 2
-
-# APPLICATION BORDERS
-for_window [title="URxvt"] border pixel 5
-for_window [class="URxvt"] border pixel 5
+for_window [class="^.*"] border pixel 0
+for_window [title="^.*"] border pixel 0
 
 # GAP VARIABLES
 set $inner 10
-set $outer 10
+set $outer 0
 
 # SET GAPS
 gaps inner $inner
@@ -199,7 +195,7 @@ client.background $bg
 
 # LOCK
 # bindsym $mod+Ctrl+x exec slock
-bindsym $mod+Ctrl+x exec i3lock
+bindsym $mod+Ctrl+x exec betterlockscreen -l dim
 
 # SCREENSHOT
 bindsym --release $mod+Print exec scrot -e 'mv $f ~/pictures/screenshots'
@@ -339,6 +335,6 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id clipit
 exec --no-startup-id nm-applet
-exec --no-startup-id xautolock -time 10 -locker blurlock
+exec --no-startup-id betterlockscreen -w dim
 exec --no-startup-id volumeicon
 exec --no-startup-id dropbox
