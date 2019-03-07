@@ -222,11 +222,11 @@ bindsym $mod+w exec $rofi-window
 bindsym $mod+s exec $rofi-ssh
 
 # BACKGROUND
-# set $background ~/Pictures/wallpapers/wallhaven-26472_1920x1080.png
-# exec_always feh --bg-max $background
-set_from_resource $g1 wall1
-set_from_resource $g2 wall2
-exec_always hsetroot -add "$g1" -add "$g2" -gradient 0
+# set_from_resource $g1 wall1
+# set_from_resource $g2 wall2
+# exec_always hsetroot -add "$g1" -add "$g2" -gradient 0
+set $background ~/.dotfiles/andrew-ridley-76547-unsplash.jpg
+exec_always feh --bg-fill $background
 
 ##### APP RULES ###################################
 
@@ -326,7 +326,6 @@ mode "$mode_system" {
 ##### LAUNCH ######################################
 
 # STARTUP
-# exec --no-startup-id .i3/lock.sh
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id compton
 exec_always xrdb -merge ~/.Xresources
@@ -335,6 +334,6 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id clipit
 exec --no-startup-id nm-applet
-exec --no-startup-id betterlockscreen -w dim
+exec --no-startup-id betterlockscreen -w blur
 exec --no-startup-id volumeicon
 exec --no-startup-id dropbox
