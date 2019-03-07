@@ -225,7 +225,7 @@ bindsym $mod+s exec $rofi-ssh
 # set_from_resource $g1 wall1
 # set_from_resource $g2 wall2
 # exec_always hsetroot -add "$g1" -add "$g2" -gradient 0
-set $background ~/.dotfiles/andrew-ridley-76547-unsplash.jpg
+set $background ~/.wallpaper.jpg
 exec_always feh --bg-fill $background
 
 ##### APP RULES ###################################
@@ -334,6 +334,6 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id clipit
 exec --no-startup-id nm-applet
-exec --no-startup-id betterlockscreen -w
+exec --no-startup-id betterlockscreen -w blur
 exec --no-startup-id volumeicon
 exec --no-startup-id dropbox
