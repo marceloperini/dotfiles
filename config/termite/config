@@ -41,10 +41,10 @@ cursor_shape = block
 [colors]
 # If both of these are unset, cursor falls back to the foreground color,
 # and cursor_foreground falls back to the background color.
-cursor = #dcdccc
-cursor_foreground = #dcdccc
+cursor = #bebebe
+cursor_foreground = #8c8c8c
 
-foreground = #f8f8f2
+foreground = #cbcbcb
 #foreground_bold = #ffffff
 background = #262626
 
@@ -55,22 +55,20 @@ background = #262626
 highlight = #2f2f2f
 
 # Colors from color0 to color254 can be set
-color0 = #6272a4
-color1 = #ff5555
-color2 = #50fa7b
-color3 = #f1fa8c
-color4 = #bd93f9
-color5 = #ff79c6
-color6 = #8be9fd
-color7 = #bfbfbf
-color8 = #4d4d4d
-color9 = #ff6e67
-color10 = #5af78e
-color11 = #f4f99d
-color12 = #caa9fa
-color13 = #ff92d0
-color14 = #9aedfe
-color15 = #e6e6e6
+color0 = #262626
+color1 = #d09cea
+color2 = #6699cc
+color3 = #99cc99
+color4 = #393939
+color5 = #ffbe3c
+color6 = #ffcc66
+color7 = #262626
+color8 = #99cc99
+color9 = #cbcbcb
+color10 = #bebebe
+color11 = #8c8c8c
+color12 = #ebebeb
+color13 = #ffbe3c
 
 [hints]
 #font = Monospace 12
