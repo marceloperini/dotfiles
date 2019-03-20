@@ -2,15 +2,15 @@
 
 *foreground: #cbcbcb
 *background: #262626
-*color0: #6e6e6e
-*color1: #2acf2a
+*color0: #262626
+*color1: #d09cea
 *color2: #6699cc
 *color3: #99cc99
-*color4: #f2777a
-*color5: #d09cea
+*color4: #393939
+*color5: #ffbe3c
 *color6: #ffcc66
-*color7: #f01d22
-*color8: #373b41
+*color7: #262626
+*color8: #99cc99
 *color9: #cbcbcb
 *color10: #bebebe
 *color11: #8c8c8c

@@ -158,7 +158,7 @@ label = "%percentage%% "
 type = internal/cpu
 interval = 2
 format-prefix = " "
-format-prefix-foreground = ${colors.blue}
+format-prefix-foreground = ${colors.blue-alt}
 label = "%percentage%% "
 
 [module/memory]
