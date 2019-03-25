@@ -4,6 +4,6 @@ before do
   `notify-send "Start pomodoro"`
 end
 
-after do |seconds_left|
+after do
   `notify-send "Pomodoro time is ending."`
 end
