@@ -12,7 +12,7 @@
 ;**********************************************************
 [colors]
 bg          =  #262626
-fg          =  #cbcbcb
+fg          =  #8c8c8c
 purple      =  #d09cea
 green       =  #99cc99
 blue        =  #6699cc
@@ -102,7 +102,7 @@ tray-background = ${colors.bg}
 module-margin-left = 1
 module-margin-right = 1
 modules-left   = i3
-modules-right  = battery0 battery1 wlan date
+modules-right  = cpu memory battery0 battery1 wlan date
 
 wm-restack = i3
 
@@ -197,12 +197,12 @@ interval = 3.0
 
 ;CONNECTED
 format-connected = <ramp-signal> <label-connected>
-format-connected-foreground = ${colors.green}
-label-connected = " %essid% "
+format-connected-foreground = ${colors.fg}
+label-connected = "%essid%"
 
 ;DISCONECTED
 label-disconnected = %ifname% disconnected
-label-disconnected-foreground = ${colors.green}
+label-disconnected-foreground = ${colors.fg}
 
 ramp-signal-0 = 
 ramp-signal-1 = 
@@ -221,7 +221,7 @@ full-at = 100
 
 ; DISCHARGING
 format-discharging = "<ramp-capacity> <label-discharging>"
-format-discharging-foreground = ${colors.blue}
+format-discharging-foreground = ${colors.fg}
 label-discharging = "%percentage%%"
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -231,7 +231,7 @@ ramp-capacity-4 = 
 
 ; CHARGING
 format-charging = "bat0 <animation-charging> <label-charging>"
-format-charging-foreground = ${colors.blue-alt}
+format-charging-foreground = ${colors.fg}
 label-charging = "%percentage%%"
 animation-charging-0 = 
 animation-charging-1 = 
@@ -242,7 +242,7 @@ animation-charging-framerate = 750
 
 ; FULL
 format-full-prefix = 
-format-full-prefix-foreground = ${colors.blue}
+format-full-prefix-foreground = ${colors.yellow-alt}
 
 ;------------------------------------------------------------------------------
 ;                                   BATTERY 01
@@ -255,7 +255,7 @@ full-at = 100
 
 ; DISCHARGING
 format-discharging = "<ramp-capacity> <label-discharging>"
-format-discharging-foreground = ${colors.blue}
+format-discharging-foreground = ${colors.fg}
 label-discharging = "%percentage%%"
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -265,7 +265,7 @@ ramp-capacity-4 = 
 
 ; CHARGING
 format-charging = "bat1 <animation-charging> <label-charging>"
-format-charging-foreground = ${colors.blue-alt}
+format-charging-foreground = ${colors.fg}
 label-charging = "%percentage%%"
 animation-charging-0 = 
 animation-charging-1 = 
@@ -276,7 +276,7 @@ animation-charging-framerate = 750
 
 ; FULL
 format-full-prefix = 
-format-full-prefix-foreground = ${colors.blue}
+format-full-prefix-foreground = ${colors.yellow-alt}
 
 ;------------------------------------------------------------------------------
 ;                                   DATE
@@ -285,10 +285,9 @@ format-full-prefix-foreground = ${colors.blue}
 type = internal/date
 interval = 5
 
-date = " %a %d %b %Y"
-time = " %H:%M "
-label = %date%%time%
+date = " %H:%M"
+date-alt = " %a, %d %b %Y"
 
 format-prefix = 
-format-foreground = ${colors.yellow-alt}
-format-prefix-foreground = ${colors.yellow-alt}
+format-foreground = ${colors.fg}
+format-prefix-foreground = ${colors.fg}
