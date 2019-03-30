@@ -102,7 +102,8 @@ tray-background = ${colors.bg}
 module-margin-left = 1
 module-margin-right = 1
 modules-left   = i3
-modules-right  = cpu memory battery0 battery1 wlan date
+modules-center = title
+modules-right  =  cpu memory battery0 battery1 wlan date
 
 wm-restack = i3
 
@@ -111,6 +112,10 @@ wm-restack = i3
 ;                   MODULES SETTINGS
 ;
 ;**********************************************************
+
+;------------------------------------------------------------------------------
+;                                  I3
+;------------------------------------------------------------------------------
 
 [module/i3]
 type = internal/i3
@@ -134,6 +139,25 @@ label-urgent-padding = 1
 label-visible = "%name%"
 label-visible-foreground = ${colors.yellow-alt}
 label-visible-padding = 1
+
+;------------------------------------------------------------------------------
+;                                  XWINDOW
+;------------------------------------------------------------------------------
+
+[module/title]
+type = internal/xwindow
+
+; Available tags:
+;   <label> (default)
+format = <label>
+format-background = ${colors.bg}
+format-foreground = ${colors.fg}
+
+; Available tokens:
+;   %title%
+; Default: %title%
+label = %title%
+label-maxlen = 50
 
 ;------------------------------------------------------------------------------
 ;                                   BACKLIGHT
