@@ -24,7 +24,7 @@ floating_modifier $mod
 
 # DEFAULT BORDER
 for_window [class="^.*"] border pixel 0
-for_window [title="^.*"] border pixel 0
+for_window [title="^.*"] border pixel 2
 
 # GAP VARIABLES
 set $inner 10
@@ -124,15 +124,15 @@ bindsym $mod+c $center
 ##### WORKSPACES ##################################
 
 # WORKSPACES
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
+set $ws1 "browser"
+set $ws2 "terminal"
+set $ws3 "misc.1"
+set $ws4 "misc.2"
+set $ws5 "misc.3"
+set $ws6 "misc.4"
+set $ws7 "chats"
+set $ws8 "music"
+set $ws9 "twitter"
 
 # SWITCH TO WORKSPACE
 bindsym $mod+1 workspace $ws1
@@ -178,16 +178,16 @@ bindsym $mod+Ctrl+Mod2+KP_9 move container to workspace $ws9
 
 ##### COLORS #######################################
 
-# XRESOURCES
-set_from_resource $bg background
-set_from_resource $in color8
+set $bg #262626
+set $fg #393939
+set $urgent #ffcc66
 
-# CLASS                 BORDER  BACK    TEXT    INDICATOR
-client.focused          $bg     $bg     $bg     $bg
-client.focused_inactive $bg     $bg     $bg     $bg
-client.unfocused        $in     $in     $in     $in
-client.urgent           $bg     $bg     $bg     $bg
-client.placeholder      $bg     $bg     $bg     $bg
+# CLASS                 BORDER   BACK    TEXT    INDICATOR
+client.focused          $fg      $fg     $fg     $fg
+client.focused_inactive $fg      $fg     $fg     $fg
+client.unfocused        $bg      $bg     $bg     $bg
+client.urgent           $urgentg $urgent $urgent $urgent
+client.placeholder      $bg      $bg     $bg     $bg
 
 client.background $bg
 
@@ -222,9 +222,6 @@ bindsym $mod+w exec $rofi-window
 bindsym $mod+s exec $rofi-ssh
 
 # BACKGROUND
-# set_from_resource $g1 wall1
-# set_from_resource $g2 wall2
-# exec_always hsetroot -add "$g1" -add "$g2" -gradient 0
 set $background ~/.wallpaper.jpg
 exec_always feh --bg-fill $background
 
