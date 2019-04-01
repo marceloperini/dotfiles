@@ -125,7 +125,8 @@ strip-wsnumbers = true
 index-sort = true
 
 label-focused = "%name%"
-label-focused-foreground = ${colors.yellow}
+label-focused-foreground = ${colors.grey}
+label-focused-background = ${colors.yellow-alt}
 label-focused-padding = 1
 
 label-unfocused = "%name%"
@@ -137,7 +138,8 @@ label-urgent-foreground = ${colors.blue-alt}
 label-urgent-padding = 1
 
 label-visible = "%name%"
-label-visible-foreground = ${colors.yellow-alt}
+label-visible-foreground = ${colors.grey}
+label-visible-background = ${colors.yellow-alt}
 label-visible-padding = 1
 
 ;------------------------------------------------------------------------------
