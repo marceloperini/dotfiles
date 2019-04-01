@@ -103,7 +103,7 @@ module-margin-left = 1
 module-margin-right = 1
 modules-left   = i3
 modules-center = title
-modules-right  =  cpu memory battery0 battery1 wlan date
+modules-right  =  battery0 battery1 date
 
 wm-restack = i3
 
@@ -254,7 +254,7 @@ ramp-capacity-3 = 
 ramp-capacity-4 = 
 
 ; CHARGING
-format-charging = "bat0 <animation-charging> <label-charging>"
+format-charging = "<animation-charging> <label-charging>"
 format-charging-foreground = ${colors.fg}
 label-charging = "%percentage%%"
 animation-charging-0 = 
@@ -288,7 +288,7 @@ ramp-capacity-3 = 
 ramp-capacity-4 = 
 
 ; CHARGING
-format-charging = "bat1 <animation-charging> <label-charging>"
+format-charging = "<animation-charging> <label-charging>"
 format-charging-foreground = ${colors.fg}
 label-charging = "%percentage%%"
 animation-charging-0 = 
