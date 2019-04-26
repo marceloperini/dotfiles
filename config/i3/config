@@ -27,7 +27,7 @@ for_window [class="^.*"] border pixel 0
 for_window [title="^.*"] border pixel 2
 
 # GAP VARIABLES
-set $inner 7
+set $inner 5
 set $outer 0
 
 # SET GAPS
@@ -186,7 +186,7 @@ set $urgent #ffcc66
 client.focused          $fg      $fg     $fg     $fg
 client.focused_inactive $fg      $fg     $fg     $fg
 client.unfocused        $bg      $bg     $bg     $bg
-client.urgent           $urgentg $urgent $urgent $urgent
+client.urgent           $urgent $urgent $urgent $urgent
 client.placeholder      $bg      $bg     $bg     $bg
 
 client.background $bg
