@@ -22,6 +22,9 @@ alias rake='noglob rake'
 alias postgres_start='sudo service postgresql start'
 alias postgres_stop='sudo service postgresql stop'
 
+# Gotop with perfect theme
+alias gtop='gotop --color=monokai'
+
 # git alias
 alias add_all='git add --all'
 alias commit='git commit -m'
