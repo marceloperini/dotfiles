@@ -97,6 +97,7 @@ tray-position = right
 tray-padding = 7
 tray-transparent = false
 tray-background = ${colors.bg}
+tray-detached = false
 
 ;separator = |
 module-margin-left = 1

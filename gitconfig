@@ -1,6 +1,7 @@
 [user]
 	name = Marcelo Perini Veloso
 	email = marcelo.perini.veloso@gmail.com
+	signingkey = F70DD86B8D627E7F
 [push]
 	default = matching
 [color]
