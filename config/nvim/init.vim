@@ -211,7 +211,10 @@ set ai " Auto indent
 set si " Smart indent
 set nowrap " No Wrap lines
 
-set number numberwidth=3
+" set number numberwidth=3
+set relativenumber
+
+set mouse=a
 
 set splitbelow
 set splitright

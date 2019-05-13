@@ -104,7 +104,7 @@ module-margin-left = 1
 module-margin-right = 1
 modules-left   = i3
 modules-center = title
-modules-right  =  battery0 battery1 date
+modules-right  =  cpu memory temperature battery0 battery1 date
 
 wm-restack = i3
 
