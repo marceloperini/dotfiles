@@ -212,6 +212,7 @@ set si " Smart indent
 set nowrap " No Wrap lines
 
 " set number numberwidth=3
+set nu
 set relativenumber
 
 set mouse=a
