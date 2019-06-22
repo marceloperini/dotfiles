@@ -130,9 +130,9 @@ set $ws3 "misc.1"
 set $ws4 "misc.2"
 set $ws5 "misc.3"
 set $ws6 "misc.4"
-set $ws7 "chats"
-set $ws8 "music"
-set $ws9 "twitter"
+set $ws7 "misc.5"
+set $ws8 "chats"
+set $ws9 "music"
 
 # SWITCH TO WORKSPACE
 bindsym $mod+1 workspace $ws1
@@ -233,18 +233,17 @@ for_window [instance="youtube.com"] floating enable; $video
 # TWITCH RULES
 for_window [instance="twitch.tv"] floating enable; $center; set resize 1270px 562px
 
-# SLACK RULES
-assign [class="slack"] $ws6
-
 # DISCORD RULES
-assign [class="discord"] $ws7
+assign [class="discord"] $ws8
+
+# SLACK RULES
+for_window [class="Slack"] move to workspace $ws8
+
+# TELEGRAM RULES
+for_window [class="Telegram"] move to workspace $ws8
 
 # SPOTIFY RULES
-for_window [class="Spotify"] move to workspace $ws8
-
-# TWEETDECK RULES
-assign [instance="tweetdeck.twitter.com"] $ws9
-for_window [instance="tweetdeck.twitter.com"] fullscreen enable
+for_window [class="Spotify"] move to workspace $ws9
 
 ##### APP BINDS ###################################
 
