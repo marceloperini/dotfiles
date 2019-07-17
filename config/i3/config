@@ -299,7 +299,7 @@ mode "$mode_system" {
 
 # STARTUP
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-exec_always --no-startup-id compton
+# exec_always --no-startup-id compton
 exec_always xrdb -merge ~/.Xresources
 exec_always ~/.screenlayout/home.sh
 
