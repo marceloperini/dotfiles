@@ -109,9 +109,6 @@ bindsym $mod+f fullscreen toggle
 # PAPER MODE
 bindsym $mod+space floating toggle; resize set 426px 670px; $center
 
-# VIDEO MODE
-bindsym $mod+Ctrl+Shift+space $video
-
 # TOGGLE FLOATING
 bindsym $mod+Ctrl+space floating toggle; $center
 
@@ -299,10 +296,9 @@ mode "$mode_system" {
 
 # STARTUP
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-# exec_always --no-startup-id compton
+exec_always --no-startup-id compton
 exec_always xrdb -merge ~/.Xresources
 exec_always ~/.screenlayout/home.sh
-
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id clipit
@@ -310,3 +306,4 @@ exec --no-startup-id nm-applet
 exec --no-startup-id betterlockscreen -w blur
 exec --no-startup-id volumeicon
 exec --no-startup-id dropbox
+exec --no-startup-id workrave
