@@ -41,7 +41,7 @@ set page-padding 0
 
 set guioptions
 
-##### BINDS ################################## 
+##### BINDS ##################################
 
 map <C-s> toggle_statusbar
 
