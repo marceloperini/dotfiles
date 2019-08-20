@@ -129,10 +129,7 @@ endif
 " Enable syntax highlighting
 syntax enable
 
-try
-    colorscheme yowish
-catch
-endtry
+colorscheme yowish
 
 let g:lightline = {
       \ 'colorscheme': 'yowish',
