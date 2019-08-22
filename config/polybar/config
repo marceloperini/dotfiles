@@ -301,8 +301,7 @@ format-full-prefix-foreground = ${colors.yellow-alt}
 type = internal/date
 interval = 5
 
-date = " %H:%M"
-date-alt = " %a, %d %b %Y"
+date = " %Y-%m-%d %H:%M"
 
 format-prefix = 
 format-foreground = ${colors.fg}
