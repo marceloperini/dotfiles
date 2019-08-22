@@ -66,11 +66,6 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # MOVE
-bindsym $mod+Ctrl+h move left
-bindsym $mod+Ctrl+j move down
-bindsym $mod+Ctrl+k move up
-bindsym $mod+Ctrl+l move right
-
 bindsym $mod+Ctrl+Left move left
 bindsym $mod+Ctrl+Down move down
 bindsym $mod+Ctrl+Up move up
@@ -213,6 +208,10 @@ bindsym $mod+Ctrl+slash  exec pactl set-sink-mute 0 toggle
 bindsym $mod+Ctrl+comma  exec amixer sset Master 5%-
 bindsym $mod+Ctrl+period exec amixer sset Master 5%+
 
+# QUICK CHANGE SETUP
+bindsym $mod+Ctrl+d exec $scripts/setups/default.sh
+bindsym $mod+Ctrl+h exec $scripts/setups/home.sh
+
 # ROFI
 bindsym $mod+d exec $rofi-drun
 bindsym $mod+w exec $rofi-window
@@ -295,7 +294,7 @@ mode "$mode_system" {
 ##### LAUNCH ######################################
 
 # STARTUP
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id $scripts/setups/default.sh
 exec_always --no-startup-id compton
 exec_always xrdb -merge ~/.Xresources
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
