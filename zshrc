@@ -106,6 +106,9 @@ export LESS="-R"
 # ooh, what is this? Aliases?
 source ~/.oh-my-zsh/lib/alias.zsh
 
+# tmuxinator autocompletion
+source ~/.bin/tmuxinator.zsh
+
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 
 . $HOME/.asdf/asdf.sh
