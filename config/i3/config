@@ -5,7 +5,7 @@ set $mod Mod4
 font pango: Fira Code Medium 9
 
 # APP VARIABLES
-set $browser      firefox
+set $browser      chromium
 set $music        spotify
 set $term         termite
 set $rofi-drun    rofi -show drun
