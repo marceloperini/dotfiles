@@ -116,15 +116,15 @@ bindsym $mod+c $center
 ##### WORKSPACES ##################################
 
 # WORKSPACES
-set $ws1 "browser"
-set $ws2 "terminal"
-set $ws3 "misc.1"
-set $ws4 "misc.2"
-set $ws5 "misc.3"
-set $ws6 "misc.4"
-set $ws7 "misc.5"
-set $ws8 "chats"
-set $ws9 "music"
+set $ws1 "1:Browser"
+set $ws2 "2:Terminal"
+set $ws3 "3:Misc.1"
+set $ws4 "4:Misc.2"
+set $ws5 "5:Misc.3"
+set $ws6 "6:Misc.4"
+set $ws7 "7:Misc.5"
+set $ws8 "8:Chats"
+set $ws9 "9:Music"
 
 # SWITCH TO WORKSPACE
 bindsym $mod+1 workspace $ws1
@@ -301,7 +301,8 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id clipit
 exec --no-startup-id nm-applet
-exec --no-startup-id betterlockscreen -w blur
+exec --no-startup-id betterlockscreen -w -u $background
+exec --no-startup-id blueman-applet
 exec --no-startup-id volumeicon
 exec --no-startup-id dropbox
 exec --no-startup-id workrave

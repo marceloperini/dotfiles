@@ -17,7 +17,6 @@ alias sz='source ~/.zshrc'
 alias irssi='TERM=screen irssi'
 
 alias rake='noglob rake'
-
 # postgres alias
 alias postgres_start='sudo service postgresql start'
 alias postgres_stop='sudo service postgresql stop'
