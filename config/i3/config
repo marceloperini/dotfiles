@@ -4,6 +4,9 @@ set $mod Mod4
 
 font pango: Fira Code Medium 9
 
+# DIR SCRIPTS
+set $scripts ~/.scripts
+
 # APP VARIABLES
 set $browser      chromium
 set $music        spotify
@@ -11,9 +14,6 @@ set $term         termite
 set $rofi-drun    rofi -show drun
 set $rofi-window  rofi -show window
 set $rofi-ssh     rofi -show ssh
-
-# DIR VARIABLES
-set $scripts ~/.scripts
 
 # RESIZE VARIABLES
 set $center move absolute position center
@@ -97,9 +97,6 @@ bindsym $mod+v split v
 
 # HORIZONTAL SPLIT
 bindsym $mod+b split h
-
-# FULLSCREEN
-bindsym $mod+f fullscreen toggle
 
 # PAPER MODE
 bindsym $mod+space floating toggle; resize set 426px 670px; $center
