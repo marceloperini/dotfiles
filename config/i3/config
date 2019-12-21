@@ -8,12 +8,11 @@ font pango: Fira Code Medium 9
 set $scripts ~/.scripts
 
 # APP VARIABLES
-set $browser      chromium
+set $browser      google-chrome-stable
 set $music        spotify
 set $term         termite
 set $rofi-drun    rofi -show drun
 set $rofi-window  rofi -show window
-set $rofi-ssh     rofi -show ssh
 
 # RESIZE VARIABLES
 set $center move absolute position center
@@ -184,17 +183,11 @@ client.background $bg
 
 # LOCK
 # bindsym $mod+Ctrl+x exec slock
-bindsym $mod+Ctrl+x exec betterlockscreen -l dim
+bindsym $mod+Ctrl+x exec i3lock -c "$bg"
 
 # SCREENSHOT
 bindsym --release $mod+Print exec scrot -e 'mv $f ~/pictures/screenshots'
 bindsym --release $mod+Ctrl+Print exec scrot -s -e 'mv $f ~/pictures/screenshots'
-# bindsym --release $mod+Shift+Print exec $scripts/scrop.sh
-
-# CAST
-# bindsym --release $mod+F12 exec $scripts/cast.sh
-# bindsym --release $mod+Ctrl+F12 exec $scripts/cast.sh -s
-bindsym $mod+F11 exec pkill ffmpeg
 
 # MEDIA CONTROLS
 bindsym $mod+slash  exec playerctl play-pause
@@ -208,15 +201,15 @@ bindsym $mod+Ctrl+period exec amixer sset Master 5%+
 # QUICK CHANGE SETUP
 bindsym $mod+Ctrl+d exec $scripts/setups/default.sh
 bindsym $mod+Ctrl+h exec $scripts/setups/home.sh
+bindsym $mod+Ctrl+o exec $scripts/setups/other.sh
 
 # ROFI
 bindsym $mod+d exec $rofi-drun
 bindsym $mod+w exec $rofi-window
-bindsym $mod+s exec $rofi-ssh
+bindsym $mod+s exec $scripts/rofi/powermenu
 
 # BACKGROUND
-set $background ~/.wallpaper.jpg
-exec_always feh --bg-fill $background
+exec_always nitrogen --restore
 
 ##### APP RULES ###################################
 
@@ -241,8 +234,6 @@ for_window [class="Spotify"] move to workspace $ws9
 ##### APP BINDS ###################################
 
 set $app chromium --app
-
-bindsym $mod+Ctrl+n  exec $scripts/search.sh
 
 bindsym $mod+m       exec $music
 bindsym $mod+Ctrl+m  exec discord
@@ -272,22 +263,6 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# Set shut down, restart and locking features
-bindsym $mod+0 mode "$mode_system"
-set $mode_system (l)ock, (s)uspend, (e) logout, (h)ibernate, (r)eboot, (p)shutdown
-mode "$mode_system" {
-    bindsym l mode "default", exec --no-startup-id $scripts/i3exit.sh lock
-    bindsym s mode "default", exec --no-startup-id $scripts/i3exit.sh suspend
-    bindsym e mode "default", exec --no-startup-id $scripts/i3exit.sh logout
-    bindsym h mode "default", exec --no-startup-id $scripts/i3exit.sh hibernate
-    bindsym r mode "default", exec --no-startup-id $scripts/i3exit.sh reboot
-    bindsym p mode "default", exec --no-startup-id $scripts/i3exit.sh shutdown
-
-    # exit system mode: "Enter" or "Escape"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
 ##### LAUNCH ######################################
 
 # STARTUP
@@ -298,7 +273,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id clipit
 exec --no-startup-id nm-applet
-exec --no-startup-id betterlockscreen -w -u $background
+exec --no-startup-id nitrogen --restore
 exec --no-startup-id blueman-applet
 exec --no-startup-id volumeicon
 exec --no-startup-id dropbox

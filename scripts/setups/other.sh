@@ -1,4 +1,4 @@
 #!/bin/bash
 
-./.screenlayout/home.sh
+./.screenlayout/other.sh
 ./.config/polybar/launcher.sh
