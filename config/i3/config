@@ -23,7 +23,7 @@ floating_modifier $mod
 
 # DEFAULT BORDER
 for_window [class="^.*"] border pixel 0
-for_window [title="^.*"] border pixel 2
+for_window [title="^.*"] border pixel 0
 
 # GAP VARIABLES
 set $inner 5
