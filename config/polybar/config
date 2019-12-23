@@ -62,8 +62,7 @@ tray-detached = false
 
 module-margin-left = 1
 module-margin-right = 1
-modules-left   = i3
-modules-center = title
+modules-left   = i3 title
 modules-right  =  cpu memory battery0 battery1 backlight date
 
 ;**********************************************************
@@ -112,13 +111,13 @@ type = internal/xwindow
 ;   <label> (default)
 format = <label>
 format-background = ${colors.bg}
-format-foreground = ${colors.fg}
+format-foreground = ${colors.yellow-alt}
 
 ; Available tokens:
 ;   %title%
 ; Default: %title%
 label = %title%
-label-maxlen = 20
+label-maxlen = 50
 
 ;------------------------------------------------------------------------------
 ;                                   BACKLIGHT
