@@ -8,7 +8,7 @@ font pango: Fira Code Medium 9
 set $scripts ~/.scripts
 
 # APP VARIABLES
-set $browser      google-chrome-stable
+set $browser      firefox
 set $music        spotify
 set $term         termite
 set $rofi-drun    rofi -show drun
@@ -23,7 +23,7 @@ floating_modifier $mod
 
 # DEFAULT BORDER
 for_window [class="^.*"] border pixel 0
-for_window [title="^.*"] border pixel 0
+for_window [title="^.*"] border pixel 2
 
 # GAP VARIABLES
 set $inner 5

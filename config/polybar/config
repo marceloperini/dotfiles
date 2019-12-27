@@ -62,7 +62,8 @@ tray-detached = false
 
 module-margin-left = 1
 module-margin-right = 1
-modules-left   = i3 title
+modules-left   = i3
+modules-center = title
 modules-right  =  cpu memory battery0 battery1 backlight date
 
 ;**********************************************************
@@ -117,7 +118,7 @@ format-foreground = ${colors.yellow-alt}
 ;   %title%
 ; Default: %title%
 label = %title%
-label-maxlen = 50
+label-maxlen = 40
 
 ;------------------------------------------------------------------------------
 ;                                   BACKLIGHT
