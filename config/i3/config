@@ -26,7 +26,7 @@ for_window [class="^.*"] border pixel 0
 for_window [title="^.*"] border pixel 2
 
 # GAP VARIABLES
-set $inner 5
+set $inner 0
 set $outer 0
 
 # SET GAPS
@@ -278,4 +278,4 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id volumeicon
 exec --no-startup-id dropbox
 exec --no-startup-id workrave
-exec --no-startup-id redshift
+exec --no-startup-id redshift-gtk
