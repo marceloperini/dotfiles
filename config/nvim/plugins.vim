@@ -20,6 +20,7 @@ Plug 'w0rp/ale'
 Plug 'vim-scripts/bufexplorer.zip'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Shougo/deoplete.nvim'
+Plug 'tpope/vim-eunuch'
 Plug 'junegunn/goyo.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
