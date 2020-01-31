@@ -26,8 +26,8 @@ for_window [class="^.*"] border pixel 0
 for_window [title="^.*"] border pixel 2
 
 # GAP VARIABLES
-set $inner 0
-set $outer 0
+set $inner 3
+set $outer 3
 
 # SET GAPS
 gaps inner $inner
@@ -279,3 +279,4 @@ exec --no-startup-id volumeicon
 exec --no-startup-id dropbox
 exec --no-startup-id workrave
 exec --no-startup-id redshift-gtk
+exec --no-startup-id solaar
