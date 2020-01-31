@@ -26,8 +26,8 @@ for_window [class="^.*"] border pixel 0
 for_window [title="^.*"] border pixel 2
 
 # GAP VARIABLES
-set $inner 3
-set $outer 3
+set $inner 5
+set $outer 5
 
 # SET GAPS
 gaps inner $inner

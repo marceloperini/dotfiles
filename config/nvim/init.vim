@@ -539,6 +539,10 @@ command! E exec ":NERDTree ".expand('%:p')
 " Open file under cursor in another tab
 map gft <C-w>gf<CR>
 
+" Mapping keys for vim-definitive
+nnoremap <Leader>fd :FindDefinition<CR> " Normal mode
+vnoremap <Leader>fd "ay:FindDefinition <C-R>a<CR> " Visual mode
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Markdown preview config.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
