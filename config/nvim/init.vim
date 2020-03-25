@@ -11,6 +11,8 @@ endif
 " Set clipboard yank
 set clipboard=unnamedplus
 
+set hidden
+
 " Sets how many lines of history VIM has to remember
 set history=500
 
@@ -36,6 +38,8 @@ set clipboard=unnamed
 set timeoutlen=1000
 
 set ttimeoutlen=0
+
+set tags=./tags,c:/ruby/lib/tags
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM user interface
@@ -489,8 +493,8 @@ let g:ale_virtualenv_dir_names = []
 let g:ale_set_highlights = 0
 
 " Only run linting when saving the file
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 0
+" let g:ale_lint_on_text_changed = 'never'
+" let g:ale_lint_on_enter = 0
 
 nmap <silent> <leader>a <Plug>(ale_next_wrap)
 let g:neosnippet#snippets_directory=$HOME.'/.config/nvim/snippets'
@@ -542,6 +546,21 @@ map gft <C-w>gf<CR>
 " Mapping keys for vim-definitive
 nnoremap <Leader>fd :FindDefinition<CR> " Normal mode
 vnoremap <Leader>fd "ay:FindDefinition <C-R>a<CR> " Visual mode
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" LanguageClient-neovim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"let g:LanguageClient_serverCommands = {
+"    \ 'ruby': ['~/.asdf/shims/solargraph', 'stdio'],
+"    \ }
+
+"nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+"" Or map each action separately
+"nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+"nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+"nnoremap <silent> ff :call LanguageClient#textDocument_formatting()<CR>
+"nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Markdown preview config.

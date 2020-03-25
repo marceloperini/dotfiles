@@ -23,6 +23,10 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'tpope/vim-eunuch'
 Plug 'junegunn/goyo.vim'
 Plug 'Yggdroot/indentLine'
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'bash install.sh',
+"     \ }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'vim-scripts/mru.vim'
 Plug 'Shougo/neosnippet.vim'
@@ -38,6 +42,7 @@ Plug 'misterbuckley/vim-definitive'
 Plug 'garbas/vim-snipmate'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tpope/vim-commentary'
+Plug 'ryanoasis/vim-devicons'
 Plug 'elixir-lang/vim-elixir'
 Plug 'terryma/vim-expand-region'
 Plug 'tpope/vim-fugitive'
