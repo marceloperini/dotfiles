@@ -23,10 +23,6 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'tpope/vim-eunuch'
 Plug 'junegunn/goyo.vim'
 Plug 'Yggdroot/indentLine'
-" Plug 'autozimu/LanguageClient-neovim', {
-"     \ 'branch': 'next',
-"     \ 'do': 'bash install.sh',
-"     \ }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'vim-scripts/mru.vim'
 Plug 'Shougo/neosnippet.vim'

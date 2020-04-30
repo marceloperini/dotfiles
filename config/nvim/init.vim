@@ -107,6 +107,7 @@ set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
+set completeopt-=preview
 
 " Properly disable sound on errors on MacVim
 if has("gui_macvim")
@@ -125,16 +126,6 @@ if exists('$TMUX')
         set term=screen-256color
     endif
 endif
-
-" Deoplete work with TAB
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ deoplete#mappings#manual_complete()
-function! s:check_back_space() abort "{{{
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction"}}}
 
 " Plugin key-mappings.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.

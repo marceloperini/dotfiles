@@ -17,6 +17,9 @@ function run {
 # Load terminal colorscheme and settings
 xrdb ~/.Xresources
 
+# Load passwords
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
+
 run compton --config ~/.config/compton.conf
 
 # Network manager tray icon
