@@ -1,15 +1,9 @@
---[[
-
-     Rainbow Awesome WM theme 2.0
-     github.com/lcpz
-
---]]
-
-local gears = require("gears")
-local lain  = require("lain")
-local awful = require("awful")
-local wibox = require("wibox")
-local dpi   = require("beautiful.xresources").apply_dpi
+local gears   = require("gears")
+local lain    = require("lain")
+local awful   = require("awful")
+local wibox   = require("wibox")
+local naughty = require("naughty")
+local dpi     = require("beautiful.xresources").apply_dpi
 local battery_widget = require("battery-widget")
 local BAT0 = battery_widget { battery_prefix = "bat0: ", adapter = "BAT0", ac = "AC" }
 local BAT1 = battery_widget { battery_prefix = "bat1: ", adapter = "BAT1", ac = "AC" }
@@ -20,19 +14,20 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme                                     = {}
 theme.default_dir                               = require("awful.util").get_themes_dir() .. "default"
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/rainbow"
-theme.wallpaper                                 = theme.dir .. "/wall.png"
+theme.wallpaper                                 = theme.dir .. "/wall.jpq"
 theme.font                                      = "Fira Code Medium 9"
 theme.fg_normal                                 = "#9E9E9E"
-theme.fg_focus                                  = "#EBEBFF"
+theme.fg_focus                                  = "#ffcc66"
 theme.bg_normal                                 = "#242424"
 theme.bg_focus                                  = "#242424"
 theme.fg_urgent                                 = "#000000"
 theme.bg_urgent                                 = "#FFFFFF"
 theme.border_width                              = dpi(1)
-theme.border_normal                             = "#242424"
-theme.border_focus                              = "#EBEBFF"
-theme.taglist_fg_focus                          = "#EDEFFF"
-theme.taglist_bg_focus                          = "#242424"
+theme.border_normal                             = "#262626"
+theme.border_focus                              = "#ffcc66"
+theme.border_radius                             = 5
+theme.taglist_fg_focus                          = "#262626"
+theme.taglist_bg_focus                          = "#ffcc66"
 theme.menu_height                               = dpi(16)
 theme.menu_width                                = dpi(140)
 theme.ocol                                      = "<span color='" .. theme.fg_normal .. "'>"
@@ -103,49 +98,6 @@ theme.cal = lain.widget.cal({
         fg   = white,
         bg   = theme.bg_normal
     }
-})
-
--- Mail IMAP check
---[[ commented because it needs to be set before use
-theme.mail = lain.widget.imap({
-    timeout  = 180,
-    server   = "server",
-    mail     = "mail",
-    password = "keyring get mail",
-    settings = function()
-        mail_notification_preset.fg = white
-
-        mail  = ""
-        count = ""
-
-        if mailcount > 0 then
-            mail = "Mail "
-            count = mailcount .. " "
-        end
-
-        widget:set_markup(markup.font(theme.font, markup(gray, mail) .. markup(white, count)))
-    end
-})
---]]
-
--- MPD
-theme.mpd = lain.widget.mpd({
-    settings = function()
-        mpd_notification_preset.fg = white
-
-        artist = mpd_now.artist .. " "
-        title  = mpd_now.title  .. " "
-
-        if mpd_now.state == "pause" then
-            artist = "mpd "
-            title  = "paused "
-        elseif mpd_now.state == "stop" then
-            artist = ""
-            title  = ""
-        end
-
-        widget:set_markup(markup.font(theme.font, markup(gray, artist) .. markup(white, title)))
-    end
 })
 
 -- /home fs
@@ -276,5 +228,29 @@ function theme.at_screen_connect(s)
         },
     }
 end
+
+-- Naughty notification theme
+
+theme.notification_fg                           = theme.fg_normal
+theme.notification_bg                           = theme.bg_normal
+theme.notification_border_color                 = theme.border_color
+theme.notification_border_width                 = 0
+theme.notification_icon_size                    = 80
+theme.notification_opacity                      = 1
+theme.notification_max_width                    = 400
+theme.notification_max_height                   = 400
+theme.notification_margin                       = 20
+theme.notification_shape                        = function(cr, w, h)
+                                                      gears.shape.rounded_rect(cr, w, h, theme.border_radius or 0)
+                                                  end
+
+naughty.config.padding                          = 15
+naughty.config.spacing                          = 10
+naughty.config.defaults.timeout                 = 5
+naughty.config.defaults.font                    = theme.font
+naughty.config.defaults.fg                      = theme.notification_fg
+naughty.config.defaults.bg                      = theme.notification_bg
+naughty.config.defaults.border_width            = theme.notification_border_width
+naughty.config.defaults.margin                  = theme.notification_margin
 
 return theme

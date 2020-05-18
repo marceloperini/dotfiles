@@ -84,36 +84,21 @@ local cycle_prev   = true -- cycle trough all previous client or just the first 
 local editor       = os.getenv("EDITOR") or "vim"
 local gui_editor   = os.getenv("GUI_EDITOR") or "gvim"
 local browser      = os.getenv("BROWSER") or "firefox"
+local scripts_path = "~/.scripts"
 local scrlocker    = "slock"
 local rofi_drun    = "rofi -show drun"
 local rofi_window  = "rofi -show window"
+local rofi_system  = scripts_path .. "/rofi/powermenu"
 local music        = "spotify"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "browser", "dev", "misc", "misc", "chat", "media" }
 awful.layout.layouts = {
-    awful.layout.suit.floating,
     awful.layout.suit.tile,
+    awful.layout.suit.floating,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
-    --awful.layout.suit.fair,
-    --awful.layout.suit.fair.horizontal,
-    --awful.layout.suit.spiral,
-    --awful.layout.suit.spiral.dwindle,
-    --awful.layout.suit.max,
-    --awful.layout.suit.max.fullscreen,
-    --awful.layout.suit.magnifier,
-    --awful.layout.suit.corner.nw,
-    --awful.layout.suit.corner.ne,
-    --awful.layout.suit.corner.sw,
-    --awful.layout.suit.corner.se,
-    --lain.layout.cascade,
-    --lain.layout.cascade.tile,
-    --lain.layout.centerwork,
-    --lain.layout.centerwork.horizontal,
-    --lain.layout.termfair,
-    --lain.layout.termfair.center,
 }
 
 awful.util.taglist_buttons = my_table.join(
@@ -382,6 +367,8 @@ globalkeys = my_table.join(
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey,           }, "d", function () awful.spawn(rofi_drun) end,
               {description = "open rofi drun", group = "launcher"}),
+    awful.key({ modkey, "Control" }, "s", function () os.execute(rofi_system) end,
+              {description = "open rofi system", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
