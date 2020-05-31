@@ -102,6 +102,7 @@ export EDITOR="vim"
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 export LESS="-R"
+export TERMINAL="gnome-terminal"
 
 # ooh, what is this? Aliases?
 source ~/.oh-my-zsh/lib/alias.zsh
@@ -111,3 +112,7 @@ test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export ORACLE_HOME=/usr/lib/oracle/12.1/client64
+export LD_LIBRARY_PATH="$ORACLE_HOME"
+export PATH="$ORACLE_HOME:$PATH"
