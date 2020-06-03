@@ -154,9 +154,7 @@ endif
 " Enable syntax highlighting
 syntax enable
 
-" colorscheme yowish
-set background=dark    " Setting dark mode
-colorscheme gruvbox
+colorscheme yowish
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
