@@ -64,7 +64,7 @@ module-margin-left = 1
 module-margin-right = 1
 modules-left   = i3
 modules-center = title
-modules-right  =  cpu memory battery0 battery1 backlight date
+modules-right  =  cpu memory battery0 battery1 backlight volume date
 
 ;**********************************************************
 ;
@@ -112,7 +112,7 @@ type = internal/xwindow
 ;   <label> (default)
 format = <label>
 format-background = ${colors.bg}
-format-foreground = ${colors.yellow-alt}
+format-foreground = ${colors.fg}
 
 ; Available tokens:
 ;   %title%
@@ -134,19 +134,11 @@ card = intel_backlight
 ;   <label> (default)
 ;   <ramp>
 ;   <bar>
-format = <ramp> <label>
+format = L <label>
 
 ; Available tokens:
 ;   %percentage% (default)
 label = %percentage%%
-
-; Only applies if <ramp> is used
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-3 = 
-ramp-4 = 
 
 ;------------------------------------------------------------------------------
 ;                               TEMPERATURE
@@ -169,6 +161,17 @@ ramp-1 = 
 ramp-2 = 
 
 ;------------------------------------------------------------------------------
+;                              VOLUME
+;------------------------------------------------------------------------------
+[module/volume]
+type = internal/volume
+
+format-volume = <label-volume>
+format-muted-foreground = ${colors.foreground}
+label-muted = | V ---
+label-volume = | V %percentage%%
+
+;------------------------------------------------------------------------------
 ;                                   CPU
 ;------------------------------------------------------------------------------
 [module/cpu]
@@ -178,7 +181,7 @@ type = internal/cpu
 ; Default: 1
 interval = 2
 
-format-prefix = " "
+format-prefix = "C "
 
 label = "%percentage%%"
 
@@ -193,7 +196,7 @@ type = internal/memory
 interval = 3
 
 format = <label>
-format-prefix = 
+format-prefix = "| M "
 label = " %gb_used%"
 
 ;------------------------------------------------------------------------------
@@ -205,40 +208,14 @@ battery = BAT0
 adapter = ADP1
 full-at = 99
 
-; DISCHARGING
-format-discharging = "<ramp-capacity> <label-discharging>"
-format-discharging-foreground = ${colors.fg}
-label-discharging = "%percentage%%"
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-ramp-capacity-5 = 
-ramp-capacity-6 = 
-ramp-capacity-7 = 
-ramp-capacity-8 = 
-ramp-capacity-9 = 
+time-format = %H:%M
+format-full = <label-full>
+format-charging = <label-charging>
+format-discharging = <label-discharging>
 
-; CHARGING
-format-charging = "<animation-charging> <label-charging>"
-format-charging-foreground = ${colors.fg}
-label-charging = "%percentage%%"
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-5 = 
-animation-charging-6 = 
-animation-charging-7 = 
-animation-charging-8 = 
-
-animation-charging-framerate = 750
-
-; FULL
-format-full-prefix = 
-format-full-prefix-foreground = ${colors.yellow-alt}
+label-charging = | B0^ %percentage%%
+label-discharging = | B0 %percentage%%
+label-full = | B0 100%
 
 ;------------------------------------------------------------------------------
 ;                                   BATTERY 01
@@ -249,40 +226,14 @@ battery = BAT1
 adapter = ADP1
 full-at = 99
 
-; DISCHARGING
-format-discharging = "<ramp-capacity> <label-discharging>"
-format-discharging-foreground = ${colors.fg}
-label-discharging = "%percentage%%"
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-ramp-capacity-5 = 
-ramp-capacity-6 = 
-ramp-capacity-7 = 
-ramp-capacity-8 = 
-ramp-capacity-9 = 
+time-format = %H:%M
+format-full = <label-full>
+format-charging = <label-charging>
+format-discharging = <label-discharging>
 
-; CHARGING
-format-charging = "<animation-charging> <label-charging>"
-format-charging-foreground = ${colors.fg}
-label-charging = "%percentage%%"
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-5 = 
-animation-charging-6 = 
-animation-charging-7 = 
-animation-charging-8 = 
-
-animation-charging-framerate = 750
-
-; FULL
-format-full-prefix = 
-format-full-prefix-foreground = ${colors.yellow-alt}
+label-charging = | B1^ %percentage%%
+label-discharging = | B1 %percentage%%
+label-full = | B1 100%
 
 ;------------------------------------------------------------------------------
 ;                                   DATE
@@ -291,9 +242,9 @@ format-full-prefix-foreground = ${colors.yellow-alt}
 type = internal/date
 interval = 5
 
-date = " %Y-%m-%d %H:%M"
+date = "%d/%m %H:%M"
 
-format-prefix = 
+format-prefix = "| "
 format-foreground = ${colors.fg}
 format-prefix-foreground = ${colors.fg}
 

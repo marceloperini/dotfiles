@@ -122,7 +122,8 @@ theme.volume = lain.widget.alsabar({
     ticks = true, width = dpi(67),
     notification_preset = { font = theme.font }
 })
-theme.volume.tooltip.wibox.fg = theme.fg_focus
+theme.volume.tooltip.wibox.fg = theme.fg_normal
+theme.volume.tooltip.wibox.bg = theme.bg_normal
 theme.volume.tooltip.wibox.font = theme.font
 theme.volume.bar:buttons(my_table.join (
           awful.button({}, 1, function()
@@ -145,7 +146,7 @@ theme.volume.bar:buttons(my_table.join (
             theme.volume.update()
           end)
 ))
-local volumebg = wibox.container.background(theme.volume.bar, "#585858", gears.shape.rectangle)
+local volumebg = wibox.container.background(theme.volume.bar, theme.bg_normal, gears.shape.rectangle)
 local volumewidget = wibox.container.margin(volumebg, dpi(7), dpi(7), dpi(5), dpi(5))
 
 -- Weather

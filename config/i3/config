@@ -8,7 +8,7 @@ font pango: Fira Code Medium 9
 set $scripts ~/.scripts
 
 # APP VARIABLES
-set $browser      chromium
+set $browser      firefox
 set $music        spotify
 set $term         termite
 set $rofi-drun    rofi -show drun
@@ -30,8 +30,8 @@ set $inner 6
 set $outer 6
 
 # SET GAPS
-gaps inner $inner
-gaps outer $outer
+# gaps inner $inner
+# gaps outer $outer
 
 # TOGGLE GAPS
 bindsym $mod+g exec compton; gaps inner all set $inner; gaps outer all set $outer
@@ -116,11 +116,8 @@ set $ws1 "1:Browser"
 set $ws2 "2:Dev"
 set $ws3 "3:Misc.1"
 set $ws4 "4:Misc.2"
-set $ws5 "5:Misc.3"
-set $ws6 "6:Misc.4"
-set $ws7 "7:Misc.5"
-set $ws8 "8:Chats"
-set $ws9 "9:Music"
+set $ws5 "5:Chats"
+set $ws6 "6:Music"
 
 # SWITCH TO WORKSPACE
 bindsym $mod+1 workspace $ws1
@@ -208,9 +205,6 @@ bindsym $mod+d exec $rofi-drun
 bindsym $mod+w exec $rofi-window
 bindsym $mod+s exec $scripts/rofi/powermenu
 
-# BACKGROUND
-exec_always nitrogen --restore
-
 ##### APP RULES ###################################
 
 # YOUTUBE RULES
@@ -220,16 +214,16 @@ for_window [instance="youtube.com"] floating enable; $video
 for_window [instance="twitch.tv"] floating enable; $center; set resize 1270px 562px
 
 # DISCORD RULES
-assign [class="discord"] $ws8
+assign [class="discord"] $ws5
 
 # SLACK RULES
-for_window [class="Slack"] move to workspace $ws8
+for_window [class="Slack"] move to workspace $ws5
 
 # TELEGRAM RULES
-for_window [class="Telegram"] move to workspace $ws8
+for_window [class="Telegram"] move to workspace $ws5
 
 # SPOTIFY RULES
-for_window [class="Spotify"] move to workspace $ws9
+for_window [class="Spotify"] move to workspace $ws6
 
 ##### APP BINDS ###################################
 
@@ -263,9 +257,18 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+# bar {
+#   status_command i3status
+#   position bottom
+#   tray_output primary
+# }
+
 ##### LAUNCH ######################################
 
 # STARTUP
+# BACKGROUND
+exec_always nitrogen --restore
+
 exec_always --no-startup-id $scripts/setups/default.sh
 exec_always --no-startup-id compton
 exec_always xrdb -merge ~/.Xresources
@@ -276,7 +279,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id blueman-applet
 exec --no-startup-id volumeicon
-exec --no-startup-id dropbox
+exec --no-startup-id dropbox start
 exec --no-startup-id workrave
 exec --no-startup-id redshift-gtk
 exec --no-startup-id solaar
