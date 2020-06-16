@@ -2,7 +2,7 @@ exec_always xrdb -merge ~/.Xresources
 
 set $mod Mod4
 
-font pango: Fira Code Medium 9
+font pango: Noto Sans Mono 10
 
 # DIR SCRIPTS
 set $scripts ~/.scripts
@@ -10,7 +10,7 @@ set $scripts ~/.scripts
 # APP VARIABLES
 set $browser      firefox
 set $music        spotify
-set $term         termite
+set $term         alacritty
 set $rofi-drun    rofi -show drun
 set $rofi-window  rofi -show window
 
@@ -34,8 +34,8 @@ set $outer 6
 # gaps outer $outer
 
 # TOGGLE GAPS
-bindsym $mod+g exec compton; gaps inner all set $inner; gaps outer all set $outer
-bindsym $mod+Ctrl+g exec pkill compton; gaps inner all set 0; gaps outer all set 0
+bindsym $mod+g exec compton;
+bindsym $mod+Ctrl+g exec pkill compton;
 
 # TERMINAL BINDS
 bindsym $mod+Return exec $term -e 'tmux'
@@ -118,6 +118,9 @@ set $ws3 "3:Misc.1"
 set $ws4 "4:Misc.2"
 set $ws5 "5:Chats"
 set $ws6 "6:Music"
+set $ws7 "7:Broadcast"
+set $ws8 "8:Misc.3"
+set $ws9 "9:Misc.4"
 
 # SWITCH TO WORKSPACE
 bindsym $mod+1 workspace $ws1
@@ -168,9 +171,9 @@ set $fg #393939
 set $urgent #ffcc66
 
 # CLASS                 BORDER   BACK    TEXT    INDICATOR
-client.focused          $fg      $fg     $fg     $fg
+client.focused          $fg      $bg     $fg     $fg
 client.focused_inactive $fg      $fg     $fg     $fg
-client.unfocused        $bg      $bg     $bg     $bg
+client.unfocused        $bg      $fg     $bg     $bg
 client.urgent           $urgent $urgent $urgent $urgent
 client.placeholder      $bg      $bg     $bg     $bg
 
@@ -257,12 +260,6 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# bar {
-#   status_command i3status
-#   position bottom
-#   tray_output primary
-# }
-
 ##### LAUNCH ######################################
 
 # STARTUP
@@ -270,7 +267,7 @@ bindsym XF86AudioPrev exec playerctl previous
 exec_always nitrogen --restore
 
 exec_always --no-startup-id $scripts/setups/default.sh
-exec_always --no-startup-id compton
+# exec_always --no-startup-id compton
 exec_always xrdb -merge ~/.Xresources
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 exec --no-startup-id xfce4-power-manager
