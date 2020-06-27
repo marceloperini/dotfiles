@@ -16,7 +16,7 @@ set $rofi-window  rofi -show window
 
 # RESIZE VARIABLES
 set $center move absolute position center
-set $video floating toggle; resize set 1152 648px; $center
+set $right move absolute position right
 
 # FLOATING
 floating_modifier $mod
@@ -166,9 +166,9 @@ bindsym $mod+Ctrl+Mod2+KP_9 move container to workspace $ws9
 
 ##### COLORS #######################################
 
-set $bg #262626
-set $fg #393939
-set $urgent #ffcc66
+set_from_resource $bg i3wm.color7
+set_from_resource $fg i3wm.color4
+set_from_resource $urgent i3wm.color6
 
 # CLASS                 BORDER   BACK    TEXT    INDICATOR
 client.focused          $fg      $bg     $fg     $fg
@@ -182,21 +182,11 @@ client.background $bg
 ##### TOOLS ########################################
 
 # LOCK
-# bindsym $mod+Ctrl+x exec slock
 bindsym $mod+Ctrl+x exec i3lock -c "$bg"
 
 # SCREENSHOT
 bindsym --release $mod+Print exec scrot -e 'mv $f ~/pictures/screenshots'
 bindsym --release $mod+Ctrl+Print exec scrot -s -e 'mv $f ~/pictures/screenshots'
-
-# MEDIA CONTROLS
-bindsym $mod+slash  exec playerctl play-pause
-bindsym $mod+comma  exec playerctl previous
-bindsym $mod+period exec playerctl next
-
-bindsym $mod+Ctrl+slash  exec pactl set-sink-mute 0 toggle
-bindsym $mod+Ctrl+comma  exec amixer sset Master 5%-
-bindsym $mod+Ctrl+period exec amixer sset Master 5%+
 
 # QUICK CHANGE SETUP
 bindsym $mod+Ctrl+d exec $scripts/setups/default.sh
@@ -205,19 +195,20 @@ bindsym $mod+Ctrl+o exec $scripts/setups/other.sh
 
 # ROFI
 bindsym $mod+d exec $rofi-drun
-bindsym $mod+w exec $rofi-window
+bindsym $mod+Tab exec $rofi-window
 bindsym $mod+s exec $scripts/rofi/powermenu
 
 ##### APP RULES ###################################
 
-# YOUTUBE RULES
-for_window [instance="youtube.com"] floating enable; $video
-
 # TWITCH RULES
 for_window [instance="twitch.tv"] floating enable; $center; set resize 1270px 562px
 
+for_window [class="Galculator"] floating enable; $center;
+
+for_window[class="Mousepad"] floating enable; $right; set resize 500px 400px;
+
 # DISCORD RULES
-assign [class="discord"] $ws5
+assign [class="Discord"] $ws5
 
 # SLACK RULES
 for_window [class="Slack"] move to workspace $ws5
@@ -271,7 +262,7 @@ exec_always --no-startup-id $scripts/setups/default.sh
 exec_always xrdb -merge ~/.Xresources
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 exec --no-startup-id xfce4-power-manager
-exec --no-startup-id clipit
+# exec --no-startup-id clipit
 exec --no-startup-id nm-applet
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id blueman-applet
