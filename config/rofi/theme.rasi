@@ -4,7 +4,7 @@
     backgroundcoloralternate: #282828;
     separatorcolor: #504945;
     scrollbarcolor: #504945;
-    foregroundcolor: #f8f8f2;
+    foregroundcolor: #cbcbcb;
     foregroundcolorinverse: #ebdbb2;
     selectioncolor: #504945;
 
@@ -24,14 +24,14 @@
     margin: 0;
     dynamic: true;
     padding-top: 500;
+    /* lines: 10; */
 }
 
 #window {
     background-color: @backgroundcolor;
-    border: 0;
-    border-radius: 0;
-    width: 100%;
-    height: 100%;
+    border: 2;
+    border-radius: 4;
+    width: 600;
 }
 
 #mainbox {
@@ -41,7 +41,7 @@
 }
 
 #element {
-    padding: 10;
+    padding: 16;
     border: 0 0 1 0;
     border-color: @separatorcolor;
     background-color: @backgroundcoloralternate;

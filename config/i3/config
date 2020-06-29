@@ -81,21 +81,16 @@ bindsym $mod+Shift+Down       resize shrink height 10px or 10 ppt
 bindsym $mod+Shift+Up         resize grow height   10px or 10 ppt
 bindsym $mod+Shift+Right      resize grow width    10px or 10 ppt
 
-bindsym $mod+Shift+Ctrl+h     resize shrink width  1px or 1 ppt
-bindsym $mod+Shift+Ctrl+j     resize shrink height 1px or 1 ppt
-bindsym $mod+Shift+Ctrl+k     resize grow height   1px or 1 ppt
-bindsym $mod+Shift+Ctrl+l     resize grow width    1px or 1 ppt
-
-bindsym $mod+Shift+Ctrl+Left  resize shrink width  1px or 1 ppt
-bindsym $mod+Shift+Ctrl+Down  resize shrink height 1px or 1 ppt
-bindsym $mod+Shift+Ctrl+Up    resize grow height   1px or 1 ppt
-bindsym $mod+Shift+Ctrl+Right resize grow width 1px or 1 ppt
-
 # VERTICAL SPLIT
 bindsym $mod+v split v
 
 # HORIZONTAL SPLIT
 bindsym $mod+b split h
+
+# Change container layout
+bindsym $mod+q layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
 
 # PAPER MODE
 bindsym $mod+space floating toggle; resize set 426px 670px; $center
@@ -187,6 +182,9 @@ bindsym $mod+Ctrl+x exec i3lock -c "$bg"
 # SCREENSHOT
 bindsym --release $mod+Print exec scrot -e 'mv $f ~/pictures/screenshots'
 bindsym --release $mod+Ctrl+Print exec scrot -s -e 'mv $f ~/pictures/screenshots'
+
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
 
 # QUICK CHANGE SETUP
 bindsym $mod+Ctrl+d exec $scripts/setups/default.sh
