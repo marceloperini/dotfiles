@@ -256,7 +256,7 @@ bindsym XF86AudioPrev exec playerctl previous
 exec_always nitrogen --restore
 
 exec_always --no-startup-id $scripts/setups/default.sh
-# exec_always --no-startup-id compton
+exec_always --no-startup-id compton
 exec_always xrdb -merge ~/.Xresources
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 exec --no-startup-id xfce4-power-manager
