@@ -1,0 +1,101 @@
+#!/bin/bash
+set -e
+set -o pipefail
+
+# Inspired by: https://github.com/codingtony/udev-monitor-hotplug
+
+# Get the devices.
+DEVICES=$(find /sys/class/drm/*/status)
+
+# Get the display.
+displaynum=$(find /tmp/.X11-unix/ -type s | sed s#/tmp/.X11-unix/X##)
+export DISPLAY=":${displaynum}.0"
+
+# From:
+# 	https://wiki.archlinux.org/index.php/Acpid#Laptop_Monitor_Power_Off
+xauth=$(ps -C Xorg -f --no-header | sed -n 's/.*-auth //; s/ -[^ ].*//; p')
+export XAUTHORITY="$xauth"
+
+# Iterate over the devices.
+while read -r line; do
+	dir=$(dirname "$line");
+	status=$(cat "$line");
+	# shellcheck disable=SC1001
+	dev=$(echo "$dir" | cut -d\- -f 2-);
+
+	if [[ "$dev" = "HDMI"* ]]; then
+		# Remove the "-X-" part from "HDMI-X-n".
+		dev=HDMI${dev#HDMI-?-}
+	else
+		dev=$(echo "$dev" | tr -d '-')
+	fi
+
+	if [[ "connected" == "$status" ]]; then
+		echo "$dev is connected."
+		# Create the variable.
+		# shellcheck disable=SC2140
+		declare "$dev"="yes"
+	fi
+done <<< "$DEVICES"
+
+home_monitors() {
+	xrandr --output eDP1 --off \
+		--output DP2-2 --mode 3840x2160 --rate 60 --rotate normal --pos 0x900 \
+		--output DP1-2 --mode 3840x2160 --rate 60 --rotate left --pos 3840x0
+}
+
+work_monitor() {
+	xrandr --output eDP1 --primary --mode 3840x2400 --rate 60 \
+		--output DP3 --mode 5120x1440 --rate 60 --above eDP1
+}
+
+# shellcheck disable=SC2154
+if [[ -n "$eDP-1" ]] && [[ -n "$DP-2" ]]; then
+	echo "eDP-1 and DP-2 are plugged in"
+	xrandr --output HDMI-1 --off \
+		--output HDMI-2 --off \
+		--output DP-1 --off \
+		--output DP-2 --mode 1920x1080 --pos 0x0 --rotate normal \
+		--output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+elif [[ -n "$eDP-1" ]]; then
+	echo "eDP-1 are plugged in"
+	xrandr --output HDMI-1 --off \
+		--output HDMI-2 --off \
+		--output DP-1 --off \
+		--output DP-2 --off \
+		--output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+elif [[ -n "$DP-1" ]]; then
+	echo "HDMI-1 is plugged in, but not HDMI1"
+	xrandr --output HDMI-1 --off \
+		--output HDMI-2 --off \
+		--output DP-2 --off \
+		--output eDP-1 --off \
+		--output DP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+elif [[ -n "$DP-2" ]]; then
+	echo "DP-2 is plugged in, but not VGA1"
+	xrandr --output HDMI-1 --off \
+		--output HDMI-2 --off \
+		--output DP-1 --off \
+		--output eDP-1 --off \
+		--output DP-2 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+elif [[ -z "$HDMI-1" ]]; then
+	echo "HDMI-1 is plugged in, but not HDMI1"
+	xrandr --output HDMI-2 --off \
+		--output DP-1 --off \
+		--output DP-2 --off \
+		--output eDP-1 --off \
+		--output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+elif [[ -n "$HDMI-2" ]]; then
+	echo "HDMI-1 is plugged in, but not HDMI1"
+	xrandr --output HDMI-1 --off \
+		--output DP-1 --off \
+		--output DP-2 --off \
+		--output eDP-1 --off \
+		--output HDMI-2 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+else
+	echo "No external monitors are plugged in"
+
+	# Reset xrandr.
+	xrandr --auto
+fi
+

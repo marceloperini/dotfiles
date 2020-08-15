@@ -203,7 +203,7 @@ for_window [instance="twitch.tv"] floating enable; $center; set resize 1270px 56
 
 for_window [class="Galculator"] floating enable; $center;
 
-for_window[class="Mousepad"] floating enable; $right; set resize 500px 400px;
+for_window[class="Mousepad"] floating enable; $center; set resize 400px 300px;
 
 # DISCORD RULES
 assign [class="Discord"] $ws5

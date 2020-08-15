@@ -1,18 +1,22 @@
 [user]
-	name = Marcelo Perini Veloso
-	email = marcelo.perini.veloso@gmail.com
-	signingkey = B479957150DE75D0
+  name = Marcelo Perini Veloso
+  email = marcelo.perini.veloso@gmail.com
+  signingkey = B479957150DE75D0
 [push]
-	default = matching
+  default = matching
 [color]
-	ui = true
-[diff]
-	tool = vimdiff
-[merge]
-	tool = vimdiff
+  ui = true
 [core]
-	autocrlf = input
+  autocrlf = input
+[diff]
+  tool = nvim
+[merge]
+  tool = nvim
 [mergetool]
-	keepBackup = false
+  keepBackup = false
+[mergetool]
+  prompt = false
+[mergetool "nvim"]
+  cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
 [commit]
   gpgsign = true

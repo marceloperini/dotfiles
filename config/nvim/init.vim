@@ -154,44 +154,21 @@ endif
 " Enable syntax highlighting
 syntax enable
 
-" colorscheme yowish
+set t_Co=256
+
 set background=dark
+" colorscheme yowish
 colorscheme gruvbox
 
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-
-" let g:lightline = {
-"       \ 'colorscheme': 'yowish',
-"       \ 'active': {
-"       \   'left': [ ['mode', 'paste'],
-"       \             ['fugitive', 'readonly', 'filename', 'modified'] ],
-"       \   'right': [ [ 'lineinfo' ], ['percent'] ]
-"       \ },
-"       \ 'component': {
-"       \   'readonly': '%{&filetype=="help"?"":&readonly?"🔒":""}',
-"       \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-"       \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
-"       \ },
-"       \ 'component_visible_condition': {
-"       \   'readonly': '(&filetype!="help"&& &readonly)',
-"       \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-"       \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
-"       \ },
-"       \ 'component_function': {
-"       \   'filename': 'FilenameForLightline'
-"       \ },
-"       \ 'separator': { 'left': ' ', 'right': ' ' },
-"       \ 'subseparator': { 'left': ' ', 'right': ' ' }
-" \ }
-
-" " Show full path of filename
-" function! FilenameForLightline()
-"   return expand('%')
-" endfunction
-
-set background=dark
-set t_Co=256
+let g:airline_powerline_fonts = 0
+let g:airline_theme = 'base16_eighties'
+if !exists('g:airline_symbols') | let g:airline_symbols = {} | endif
+let g:airline_section_b = ''
+let g:airline_section_z = airline#section#create(['%l:%c %L'])
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline#extensions#hunks#enabled = 0
+let g:airline#extensions#ale#enabled = 1
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -370,8 +347,21 @@ fun! CleanExtraSpaces()
 endfun
 
 if has("autocmd")
-    autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
+  autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
 endif
+
+noremap <silent> <leader>go :JumpToTag<CR>
+noremap <silent> <leader>gov :JumpToTagOnVsplit<CR>
+noremap <silent> <leader>gos :JumpToTagOnSplit<CR>
+
+" open tag of the word under the cursor, requires to run "ctargs -R ." before
+command! JumpToTag execute ':tag ' . expand("<cword>")
+
+command! JumpToTagOnVsplit :vsplit
+      \| execute ':tag ' . expand("<cword>")
+
+command! JumpToTagOnSplit :split
+      \| execute ':tag ' . expand("<cword>")
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Helper functions
