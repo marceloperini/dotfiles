@@ -1,13 +1,14 @@
 [user]
   name = Marcelo Perini Veloso
   email = marcelo.perini.veloso@gmail.com
-  signingkey = B479957150DE75D0
+  signingkey = 3F18AB156FE16548
 [push]
   default = matching
 [color]
   ui = true
 [core]
   autocrlf = input
+	excludesfile = /home/marcelo/.global_ignore
 [diff]
   tool = nvim
 [merge]

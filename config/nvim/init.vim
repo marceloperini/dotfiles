@@ -157,13 +157,11 @@ syntax enable
 set t_Co=256
 
 set background=dark
-" colorscheme yowish
 colorscheme gruvbox
 
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 let g:airline_theme = 'base16_eighties'
 if !exists('g:airline_symbols') | let g:airline_symbols = {} | endif
-let g:airline_section_b = ''
 let g:airline_section_z = airline#section#create(['%l:%c %L'])
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
