@@ -8,7 +8,7 @@
   ui = true
 [core]
   autocrlf = input
-	excludesfile = /home/marcelo/.global_ignore
+  excludesfile = /home/marcelo/.global_ignore
 [diff]
   tool = nvim
 [merge]

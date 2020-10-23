@@ -13,13 +13,14 @@ endif
 
 call plug#begin(expand('~/.config/nvim/plugged'))
 
-Plug 'mileszs/ack.vim'
 Plug 'slashmili/alchemist.vim'
 Plug 'cohama/agit.vim'
 Plug 'w0rp/ale'
 Plug 'vim-scripts/bufexplorer.zip'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Shougo/deoplete.nvim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'stsewd/fzf-checkout.vim'
 Plug 'tpope/vim-eunuch'
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/goyo.vim'

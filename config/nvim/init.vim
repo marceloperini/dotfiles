@@ -486,20 +486,6 @@ let g:neosnippet#snippets_directory=$HOME.'/.config/nvim/snippets'
 
 let g:deoplete#enable_at_startup = 1
 
-" Ctrlp settings
-let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
-
-let g:ctrlp_max_height = 30
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
-
 " NERDTree
 let NERDTreeWinPos="left"
 let NERDTreeHighlightCursorline=1
@@ -527,21 +513,20 @@ map gft <C-w>gf<CR>
 " Mapping keys for vim-definitive
 nnoremap <Leader>fd :FindDefinition<CR> " Normal mode
 vnoremap <Leader>fd "ay:FindDefinition <C-R>a<CR> " Visual mode
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" FZF
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" LanguageClient-neovim
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Type CTRL+p to open FZF window and search files
+nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> <C-f> :Ag<CR>
 
-"let g:LanguageClient_serverCommands = {
-"    \ 'ruby': ['~/.asdf/shims/solargraph', 'stdio'],
-"    \ }
-
-"nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-"" Or map each action separately
-"nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-"nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-"nnoremap <silent> ff :call LanguageClient#textDocument_formatting()<CR>
-"nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+" Enable per-command history
+" - History files will be stored in the specified directory
+" - When set, CTRL-N and CTRL-P will be bound to 'next-history' and
+"   'previous-history' instead of 'down' and 'up'.
+let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Markdown preview config.
