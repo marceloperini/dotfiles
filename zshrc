@@ -53,7 +53,7 @@ plugins=(git ruby)
 
 # User configuration
 
-export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/snap/bin:$HOME/.cargo/bin"
+export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/snap/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -112,6 +112,8 @@ test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 . $HOME/.asdf/asdf.sh
+
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # append completions to fpath
 fpath=(${ASDF_DIR}/completions $fpath)
