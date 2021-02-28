@@ -13,53 +13,68 @@ endif
 
 call plug#begin(expand('~/.config/nvim/plugged'))
 
-Plug 'slashmili/alchemist.vim'
-Plug 'cohama/agit.vim'
-Plug 'w0rp/ale'
-Plug 'vim-scripts/bufexplorer.zip'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'Shougo/deoplete.nvim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'stsewd/fzf-checkout.vim'
-Plug 'tpope/vim-eunuch'
-Plug 'morhetz/gruvbox'
-Plug 'junegunn/goyo.vim'
-Plug 'Yggdroot/indentLine'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'vim-scripts/mru.vim'
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'scrooloose/nerdtree'
-Plug 'roxma/nvim-yarp'
-Plug 'amix/open_file_under_cursor.vim'
-Plug 'danro/rename.vim'
-Plug 'tomtom/tlib_vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'misterbuckley/vim-definitive'
-Plug 'garbas/vim-snipmate'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tpope/vim-commentary'
-Plug 'ryanoasis/vim-devicons'
-Plug 'elixir-lang/vim-elixir'
-Plug 'terryma/vim-expand-region'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'tyru/open-browser.vim'
-Plug 'tyru/open-browser-github.vim'
-Plug 'roxma/vim-hug-neovim-rpc'
-Plug 'pbrisbin/vim-mkdir'
+" Languages
+Plug 'ap/vim-css-color'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'elixir-editors/vim-elixir'
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'rust-lang/rust.vim'
+Plug 'slim-template/vim-slim', { 'for': ['slim'] }
+Plug 'tpope/vim-haml', { 'for': ['haml'] }
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
-Plug 'thoughtbot/vim-rspec'
-Plug 'sunaku/vim-ruby-minitest'
-Plug 'slim-template/vim-slim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'vim-test/vim-test'
+Plug 'yuezk/vim-js'
+
+" Utils
+Plug 'cohama/agit.vim'
+Plug 'w0rp/ale'
+Plug 'stsewd/fzf-checkout.vim'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-eunuch'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'ryanoasis/vim-devicons'
+Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdcommenter'
+" Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'godlygeek/tabular'
 Plug 'mg979/vim-visual-multi'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'chr4/sslsecure.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'airblade/vim-gitgutter'
+Plug 'tyru/open-browser.vim' " open-browser-github dependency
+Plug 'tyru/open-browser-github.vim'
+Plug 'pbrisbin/vim-mkdir'
 Plug 'maxbrunsfeld/vim-yankstack'
-Plug 'amix/vim-zenroom2'
 Plug 'KabbAmine/zeavim.vim'
-Plug 'KabbAmine/yowish.vim'
+
+" LSP
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Colorscheme
+Plug 'morhetz/gruvbox'
+
+" Plug 'vim-scripts/bufexplorer.zip'
+" Plug 'Yggdroot/indentLine'
+" Plug 'vim-scripts/mru.vim'
+" Plug 'roxma/nvim-yarp' " Deoplete dependency
+" Plug 'amix/open_file_under_cursor.vim'
+" Plug 'danro/rename.vim'
+" Plug 'tomtom/tlib_vim' " vim-snipmate dependency
+" Plug 'misterbuckley/vim-definitive'
+" Plug 'garbas/vim-snipmate'
+" Plug 'MarcWeber/vim-addon-mw-utils'
+" Plug 'terryma/vim-expand-region'
+" Plug 'roxma/vim-hug-neovim-rpc' " Deoplete dependency
 
 call plug#end()

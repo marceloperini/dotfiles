@@ -53,7 +53,7 @@ plugins=(git ruby)
 
 # User configuration
 
-export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/snap/bin"
+export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/snap/bin:$HOME/.cargo/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
