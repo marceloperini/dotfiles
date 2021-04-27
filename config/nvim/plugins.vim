@@ -18,7 +18,7 @@ Plug 'ap/vim-css-color'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'elixir-editors/vim-elixir'
 Plug 'leafgarland/typescript-vim'
-" Plug 'maxmellon/vim-jsx-pretty'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'rust-lang/rust.vim'
 Plug 'slim-template/vim-slim', { 'for': ['slim'] }
 Plug 'tpope/vim-rails'
