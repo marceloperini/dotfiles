@@ -395,8 +395,8 @@ command! JumpToTagOnSplit :split
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 function! PathFileName ()
-    return expand('%:p:h')
-  endfunction
+  return expand('%:p:h')
+endfunction
 
 let g:keep_trailing_spaces = 0
 command! -nargs=? KeepTrailingSpaces
@@ -571,6 +571,7 @@ nnoremap <silent> <C-f> :Ag<CR>
 " - When set, CTRL-N and CTRL-P will be bound to 'next-history' and
 "   'previous-history' instead of 'down' and 'up'.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
+let g:fzf_layout = { 'down': '30%' }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Markdown preview config.
