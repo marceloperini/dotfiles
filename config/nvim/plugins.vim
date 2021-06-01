@@ -40,7 +40,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree'
 Plug 'preservim/nerdcommenter'
-Plug 'Shougo/deoplete.nvim'
+" Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'godlygeek/tabular'
@@ -57,11 +57,11 @@ Plug 'KabbAmine/zeavim.vim'
 Plug 'roxma/vim-hug-neovim-rpc' " Deoplete dependency
 Plug 'roxma/nvim-yarp' " Deoplete dependency
 Plug 'Yggdroot/indentLine'
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 Plug 'editorconfig/editorconfig-vim'
 
 " LSP
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Colorscheme
 Plug 'morhetz/gruvbox'
