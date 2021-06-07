@@ -1,3 +1,8 @@
+[battery]
+command=~/.config/i3blocks/i3blocks-battery/battery.py
+markup=pango
+interval=30
+
 [time]
 command=date '+%a %m-%d-%y %l:%M %p'
 interval=5
