@@ -12,6 +12,7 @@
 * [redshift](http://jonls.dk/redshift)
 * [clipit](https://github.com/CristianHenzel/ClipIt)
 * [blueman](https://github.com/blueman-project/blueman)
+* [nvim](https://neovim.io/)
 
 ## Credits:
 
