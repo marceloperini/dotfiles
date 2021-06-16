@@ -13,6 +13,7 @@
 * [clipit](https://github.com/CristianHenzel/ClipIt)
 * [blueman](https://github.com/blueman-project/blueman)
 * [nvim](https://neovim.io/)
+* [tmux](https://github.com/tmux/tmux)
 
 ## Credits:
 
