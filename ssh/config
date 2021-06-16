@@ -1,0 +1,12 @@
+Host *
+  # Always use SSH2.
+  Protocol 2
+  # Disable SSH Host Key Checking
+  StrictHostKeyChecking no
+  # also this stuff
+  VisualHostKey yes
+  Compression yes
+  TCPKeepAlive yes
+  ServerAliveInterval 10
+  ServerAliveCountMax 120
+  LogLevel INFO
