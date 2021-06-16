@@ -8,7 +8,7 @@ font pango: Noto Sans Mono 10
 set $scripts ~/.scripts
 
 # APP VARIABLES
-set $browser      firefox
+set $browser      brave-browser
 set $music        spotify
 set $term         alacritty
 set $rofi-drun    rofi -show drun
@@ -274,7 +274,7 @@ exec_always --no-startup-id compton
 exec_always xrdb -merge ~/.Xresources
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 exec --no-startup-id xfce4-power-manager
-# exec --no-startup-id clipit
+exec --no-startup-id clipit
 exec --no-startup-id nm-applet
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id blueman-applet
