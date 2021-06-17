@@ -8,7 +8,7 @@ font pango: Noto Sans Mono 10
 set $scripts ~/.scripts
 
 # APP VARIABLES
-set $browser      brave-browser
+set $browser      firefox
 set $music        spotify
 set $term         alacritty
 set $rofi-drun    rofi -show drun
@@ -251,7 +251,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
 bar {
   status_command i3blocks -c ~/.config/i3blocks/config
-  position bottom
+  position top
   colors {
     separator #666666
     background #222222
