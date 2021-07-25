@@ -17,8 +17,8 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 Plug 'ap/vim-css-color'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'elixir-editors/vim-elixir'
-Plug 'leafgarland/typescript-vim'
-Plug 'mxw/vim-jsx'
+Plug 'yuezk/vim-js'
+Plug 'MaxMEllon/vim-jsx-pretty'
 " Plug 'rust-lang/rust.vim'
 Plug 'slim-template/vim-slim', { 'for': ['slim'] }
 Plug 'tpope/vim-rails'
@@ -57,8 +57,8 @@ Plug 'KabbAmine/zeavim.vim'
 Plug 'roxma/vim-hug-neovim-rpc' " Deoplete dependency
 Plug 'roxma/nvim-yarp' " Deoplete dependency
 Plug 'Yggdroot/indentLine'
-" Plug 'ludovicchabant/vim-gutentags'
 Plug 'editorconfig/editorconfig-vim'
+
 
 " LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
