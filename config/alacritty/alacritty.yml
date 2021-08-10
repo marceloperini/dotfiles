@@ -75,17 +75,17 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: "JetBrainsMono Nerd Font"
-    style: Regular
+    family: "FiraCode Nerd Font Mono"
+    style: Retina
 
   # Bold font face
   bold:
-    family: "JetBrainsMono Nerd Font"
+    family: "FiraCode Nerd Font Mono"
     style: Bold
 
   # Italic font face
   italic:
-    family: "JetBrainsMono Nerd Font"
+    family: "FiraCode Nerd Font Mono"
     style: Italic
 
   # Point size
@@ -144,19 +144,6 @@ colors:
   vi_mode_cursor:
     text:   CellBackground
     cursor: CellForeground
-  # search:
-  #   matches:
-  #     foreground: '#000000'
-  #     background: '#ffffff'
-  #   focused_match:
-  #    foreground: CellBackground
-  #    background: CellForeground
-  #   bar:
-  #     background: ''
-  #     foreground: ''
-  # line_indicator:
-  #   foreground: None
-  #   background: None
   selection:
     text:       CellBackground
     background: CellForeground
@@ -230,7 +217,7 @@ mouse:
   # If this is `true`, the cursor is temporarily hidden when typing.
   hide_when_typing: false
 
-  url:
+  hints:
     # URL launcher
     #
     # This program is executed when clicking on a text which is recognized as a URL.

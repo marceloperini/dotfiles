@@ -13,38 +13,24 @@ endif
 
 call plug#begin(expand('~/.config/nvim/plugged'))
 
-" Languages
-Plug 'ap/vim-css-color'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'elixir-editors/vim-elixir'
-Plug 'yuezk/vim-js'
-Plug 'MaxMEllon/vim-jsx-pretty'
-" Plug 'rust-lang/rust.vim'
-Plug 'slim-template/vim-slim', { 'for': ['slim'] }
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-rake'
-Plug 'vim-ruby/vim-ruby'
-Plug 'vim-test/vim-test'
-Plug 'yuezk/vim-js'
-
-" Utils
-Plug 'cohama/agit.vim'
-Plug 'w0rp/ale'
-Plug 'stsewd/fzf-checkout.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-eunuch'
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'ryanoasis/vim-devicons'
-Plug 'scrooloose/nerdtree'
-Plug 'preservim/nerdcommenter'
-" Plug 'Shougo/deoplete.nvim'
+" General
+Plug 'rhysd/git-messenger.vim'                      " Reveal the commit messages under the cursor | https://github.com/rhysd/git-messenger.vim
+Plug 'cohama/agit.vim'                              " Git commits visualizations                  | https://github.com/cohama/agit.vim
+Plug 'dense-analysis/ale'                           " Asynchronous Lint Engine                    | https://github.com/dense-analysis/ale
+Plug 'stsewd/fzf-checkout.vim'                      " Manage branches and tags with fzf           | https://github.com/stsewd/fzf-checkout.vim
+Plug 'tpope/vim-fugitive'                           " Tim Pope's Git wrapper                      | https://github.com/tpope/vim-fugitive
+Plug 'tpope/vim-surround'                           " Quoting/parenthesizing made simple          | https://github.com/tpope/vim-surround
+Plug 'tpope/vim-endwise'                            " Close structures automatically              | https://github.com/tpope/vim-endwise
+Plug 'tpope/vim-eunuch'                             " UNIX commands on Vim                        | https://github.com/tpope/vim-eunuch
+Plug 'junegunn/fzf.vim'                             " FZF for Vim                                 | https://github.com/junegunn/fzf.vim
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " A command-line fuzzy finder                 | https://github.com/junegunn/fzf
+Plug 'ryanoasis/vim-devicons'                       " Adds file type icons to Vim                 | https://github.com/ryanoasis/vim-devicons
+Plug 'preservim/nerdtree'                           " A tree explorer plugin for vim              | https://github.com/preservim/nerdtree
+Plug 'preservim/nerdcommenter'                      " Comment functions                           | https://github.com/preservim/nerdcommenter
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'godlygeek/tabular'
-Plug 'mg979/vim-visual-multi'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'} " Multiple cursors plugin for vim/neovim      | https://github.com/mg979/vim-visual-multi
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
@@ -59,21 +45,24 @@ Plug 'roxma/nvim-yarp' " Deoplete dependency
 Plug 'Yggdroot/indentLine'
 Plug 'editorconfig/editorconfig-vim'
 
+" Languages
+Plug 'ap/vim-css-color'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'elixir-editors/vim-elixir'
+Plug 'yuezk/vim-js'
+Plug 'MaxMEllon/vim-jsx-pretty'
+" Plug 'rust-lang/rust.vim'
+Plug 'slim-template/vim-slim', { 'for': ['slim'] }
+Plug 'tpope/vim-rails'                  " Ruby on Rails power tools                   | https://github.com/tpope/vim-rails
+Plug 'tpope/vim-rake'
+Plug 'vim-ruby/vim-ruby'
+Plug 'vim-test/vim-test' " Run your tests at the speed of thought | https://github.com/janko/vim-test
+Plug 'yuezk/vim-js'
 
 " LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Colorscheme
 Plug 'morhetz/gruvbox'
-
-" Plug 'vim-scripts/bufexplorer.zip'
-" Plug 'vim-scripts/mru.vim'
-" Plug 'amix/open_file_under_cursor.vim'
-" Plug 'danro/rename.vim'
-" Plug 'tomtom/tlib_vim' " vim-snipmate dependency
-" Plug 'misterbuckley/vim-definitive'
-" Plug 'garbas/vim-snipmate'
-" Plug 'MarcWeber/vim-addon-mw-utils'
-" Plug 'terryma/vim-expand-region'
 
 call plug#end()
