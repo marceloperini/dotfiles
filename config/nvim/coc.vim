@@ -1,3 +1,6 @@
+" Open file under cursor in another tab
+map gft <C-w>gf<CR>
+
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.

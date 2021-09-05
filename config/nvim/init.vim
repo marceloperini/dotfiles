@@ -425,9 +425,6 @@ noremap <silent> <C-\> :call OpenNERDTreeMirror()<CR>
 nnoremap <silent> <leader>fl :NERDTreeFind<CR>
 command! E exec ":NERDTree ".expand('%:p')
 
-" Open file under cursor in another tab
-map gft <C-w>gf<CR>
-
 let g:vim_jsx_pretty_highlight_close_tag = 1
 
 "" Include FZF configurations
@@ -450,3 +447,4 @@ endif
 if filereadable(expand("~/.config/nvim/maps.vim"))
   source ~/.config/nvim/maps.vim
 endif
+
