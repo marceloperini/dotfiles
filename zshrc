@@ -49,7 +49,7 @@ ZSH_THEME="kolo"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ruby rails rake asdf gem debian)
+plugins=(git ruby rails)
 
 # User configuration
 

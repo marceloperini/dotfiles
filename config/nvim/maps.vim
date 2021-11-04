@@ -27,7 +27,7 @@ noremap <Leader>e :quit<CR> " Quit current window
 noremap <Leader>we :wq<CR>  " Write and quite current window
 noremap <Leader>E :qa!<CR>  " Quit all windows
 noremap <Leader>wE :wq!<CR> " Write and quit all windows
-noremap <Leader>gs :Gstatus<CR> " Open Git status
+noremap <Leader>gs :Git<CR> " Open Git status
 
 " Easier moving between tabs
 map <Leader>n <esc>:tabprevious<CR>
