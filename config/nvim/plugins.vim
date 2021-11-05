@@ -44,6 +44,7 @@ Plug 'roxma/vim-hug-neovim-rpc' " Deoplete dependency
 Plug 'roxma/nvim-yarp' " Deoplete dependency
 Plug 'Yggdroot/indentLine'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Languages
 Plug 'ap/vim-css-color'
@@ -60,9 +61,10 @@ Plug 'vim-test/vim-test' " Run your tests at the speed of thought | https://gith
 Plug 'yuezk/vim-js'
 
 " LSP
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Colorscheme
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
 
 call plug#end()
