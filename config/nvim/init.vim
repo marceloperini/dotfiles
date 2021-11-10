@@ -124,8 +124,9 @@ endif
 syntax on
 set t_Co=256
 set cursorline
-colorscheme onehalflight
-let g:airline_theme='onehalflight'
+colorscheme gruvbox
+set background=dark
+let g:airline_theme='gruvbox'
 
 " let g:airline_theme='light'
 let g:airline#extensions#whitespace#enabled = 0
@@ -194,14 +195,14 @@ let g:neosnippet#snippets_directory=$HOME.'/.config/nvim/snippets'
 
 let g:deoplete#enable_at_startup = 1
 
-inoremap <silent><expr> <TAB>
-    \ pumvisible() ? "\<C-n>" :
-    \ <SID>check_back_space() ? "\<TAB>" :
-    \ deoplete#mappings#manual_complete()
-function! s:check_back_space() abort "{{{
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-endfunction"}}}
+"inoremap <silent><expr> <TAB>
+    "\ pumvisible() ? "\<C-n>" :
+    "\ <SID>check_back_space() ? "\<TAB>" :
+    "\ deoplete#mappings#manual_complete()
+"function! s:check_back_space() abort "{{{
+    "let col = col('.') - 1
+    "return !col || getline('.')[col - 1]  =~ '\s'
+"endfunction"}}}
 
 " NERDTree
 let NERDTreeWinPos="left"
@@ -478,27 +479,3 @@ map <leader>sn ]s
 map <leader>sp [s
 map <leader>sa zg
 map <leader>s? z=
-
-" When you press gv you Ack after the selected text
-vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
-
-" Open Ack and put the cursor in the right position
-map <leader>g :Ack
-
-" When you press <leader>r you can search and replace the selected text
-vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
-
-" Do :help cope if you are unsure what cope is. It's super useful!
-"
-" When you search with Ack, display your results in cope by doing:
-"   <leader>cc
-"
-" To go to the next search result do:
-"   <leader>n
-"
-" To go to the previous search results do:
-"   <leader>p
-"
-map <leader>cc :botright cope<cr>
-map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
-map <leader>p :cp<cr>
