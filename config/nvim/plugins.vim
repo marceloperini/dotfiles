@@ -64,7 +64,6 @@ Plug 'yuezk/vim-js'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Colorscheme
- Plug 'morhetz/gruvbox'
-" Plug 'sonph/onehalf', { 'rtp': 'vim' }
+ Plug 'rakr/vim-one'
 
 call plug#end()
