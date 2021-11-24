@@ -12,7 +12,7 @@ endif
 if has("gui_running")
   set guioptions-=m
   set guioptions-=T
-  set guifont=Inconsolata:h14
+  set guifont=InconsolataGo Nerd Font Mono:h12
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
