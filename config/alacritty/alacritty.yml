@@ -13,7 +13,7 @@
   #TERM: xterm-256color
 
 shell:
-  program: /bin/zsh
+  program: /bin/fish
   args:
     - --login
 
@@ -75,21 +75,21 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: "FiraCode Nerd Font Mono"
+    family: "InconsolataGo Nerd Font Mono"
     style: Retina
 
   # Bold font face
   bold:
-    family: "FiraCode Nerd Font Mono"
+    family: "InconsolataGo Nerd Font Mono"
     style: Bold
 
   # Italic font face
   italic:
-    family: "FiraCode Nerd Font Mono"
+    family: "InconsolataGo Nerd Font Mono"
     style: Italic
 
   # Point size
-  size: 9
+  size: 12
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.

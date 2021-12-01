@@ -28,6 +28,7 @@ set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set relativenumber
+set mouse=a             " enable use of the mouse for all modes
 set nu
 set ai                  " Auto indent
 set si                  " Smart indent
@@ -122,7 +123,6 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-"Credit joshdick
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
 "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
@@ -142,11 +142,11 @@ endif
 syntax on
 set t_Co=256
 set cursorline
-set background=light        " for the light version
-let g:one_allow_italics = 1 " I love italic for comments
-colorscheme one
+let g:gruvbox_italic=1
+set background=dark         " for the light version
+colorscheme gruvbox
 
-let g:airline_theme='one'
+let g:airline_theme='gruvbox'
 let g:airline#extensions#whitespace#enabled = 0
 if !exists('g:airline_symbols') | let g:airline_symbols = {} | endif
 let g:airline_section_z = airline#section#create(['%l:%c %L'])
@@ -213,14 +213,14 @@ let g:neosnippet#snippets_directory=$HOME.'/.config/nvim/snippets'
 
 let g:deoplete#enable_at_startup = 1
 
-"inoremap <silent><expr> <TAB>
-    "\ pumvisible() ? "\<C-n>" :
-    "\ <SID>check_back_space() ? "\<TAB>" :
-    "\ deoplete#mappings#manual_complete()
-"function! s:check_back_space() abort "{{{
-    "let col = col('.') - 1
-    "return !col || getline('.')[col - 1]  =~ '\s'
-"endfunction"}}}
+inoremap <silent><expr> <TAB>
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ deoplete#mappings#manual_complete()
+function! s:check_back_space() abort "{{{
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction"}}}
 
 " NERDTree
 let NERDTreeWinPos="left"

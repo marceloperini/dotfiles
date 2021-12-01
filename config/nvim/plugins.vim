@@ -42,7 +42,6 @@ Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'KabbAmine/zeavim.vim'
 Plug 'roxma/vim-hug-neovim-rpc' " Deoplete dependency
 Plug 'roxma/nvim-yarp' " Deoplete dependency
-" Plug 'Yggdroot/indentLine'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
@@ -64,6 +63,6 @@ Plug 'yuezk/vim-js'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Colorscheme
- Plug 'rakr/vim-one'
+ Plug 'morhetz/gruvbox'
 
 call plug#end()
