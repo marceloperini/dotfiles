@@ -2,30 +2,45 @@
   name = Marcelo Perini Veloso
   email = marcelo.perini.veloso@pm.me
   signingkey = 1397508EE6ECADFE
-[push]
-  default = matching
+
 [color]
   ui = true
+
 [core]
   editor = nvim
   autocrlf = input
   excludesfile = /home/marcelo/.global_ignore
-[diff]
-  tool = nvim
-[merge]
-  tool = nvim
-[mergetool]
-  keepBackup = false
-[mergetool]
-  prompt = false
-[mergetool "nvim"]
-  cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
-[rebase]
-  instructionFormat = %s [%an] # add the commit author to the end of each line
+
+[push]
+  default = simple
+
 [commit]
   gpgsign = true
+
 [pull]
   rebase = true
   ff = only
+
+[diff]
+  tool = nvim
+
+[merge]
+  tool = vimdiff
+
+[mergetool]
+  keepBackup = false
+
+[mergetool]
+  prompt = false
+
+[mergetool "nvim"]
+  cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+
+[rebase]
+  instructionFormat = %s [%an] # add the commit author to the end of each line
+
 [init]
   defaultBranch = main
+
+[alias]
+  commit = commit -S -v
