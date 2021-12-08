@@ -7,6 +7,7 @@
 [color]
   ui = true
 [core]
+  editor = nvim
   autocrlf = input
   excludesfile = /home/marcelo/.global_ignore
 [diff]
@@ -19,10 +20,12 @@
   prompt = false
 [mergetool "nvim"]
   cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+[rebase]
+  instructionFormat = %s [%an] # add the commit author to the end of each line
 [commit]
   gpgsign = true
 [pull]
   rebase = true
   ff = only
 [init]
-	defaultBranch = main
+  defaultBranch = main
