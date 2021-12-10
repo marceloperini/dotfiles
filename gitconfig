@@ -25,7 +25,7 @@
   tool = nvim
 
 [merge]
-  tool = vimdiff
+  tool = nvim
 
 [mergetool]
   keepBackup = false
