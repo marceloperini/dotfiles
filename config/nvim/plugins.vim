@@ -61,6 +61,7 @@ Plug 'yuezk/vim-js'
 
 " LSP
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neovim/nvim-lspconfig'
 
 " Colorscheme
  Plug 'morhetz/gruvbox'
