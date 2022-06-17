@@ -1,4 +1,3 @@
--- Use packer to manage plugins
 return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
@@ -15,8 +14,15 @@ return require('packer').startup(function()
   use 'junegunn/fzf.vim'                             -- FZF for Vim                                 | https://github.com/junegunn/fzf.vim
 
   use { 'junegunn/fzf', run = function() vim.fn['fzf#install()'](0) end } -- A command-line fuzzy finder                 | https://github.com/junegunn/fzf
-  use 'ryanoasis/vim-devicons'                       -- Adds file type icons to Vim                 | https://github.com/ryanoasis/vim-devicons
-  use 'preservim/nerdtree'                           -- A tree explorer plugin for vim              | https://github.com/preservim/nerdtree
+
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons',
+    },
+    config = function() require'nvim-tree'.setup {} end
+  }
+
   use 'preservim/nerdcommenter'                      -- Comment functions                           | https://github.com/preservim/nerdcommenter
   use 'Shougo/neosnippet.vim'
   use 'Shougo/neosnippet-snippets'
@@ -31,10 +37,7 @@ return require('packer').startup(function()
   use 'pbrisbin/vim-mkdir'
   use 'maxbrunsfeld/vim-yankstack'
   use 'KabbAmine/zeavim.vim'
-  --use 'roxma/vim-hug-neovim-rpc' -- Deoplete dependency
-  --use 'roxma/nvim-yarp' -- Deoplete dependency
   use 'editorconfig/editorconfig-vim'
-  --use {'Shougo/deoplete.nvim', run = ':UpdateRemotePlugins' }
 
   -- Languages
   use 'ap/vim-css-color'
@@ -50,7 +53,6 @@ return require('packer').startup(function()
   use 'vim-test/vim-test' -- Run your tests at the speed of thought | https://github.com/janko/vim-test
 
   -- LSP
-  -- use 'neoclide/coc.nvim', {'branch': 'release'}
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
   use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp

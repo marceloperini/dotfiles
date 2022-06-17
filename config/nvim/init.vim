@@ -206,37 +206,9 @@ let g:neosnippet#snippets_directory=$HOME.'/.config/nvim/snippets'
 " Misc.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"let g:deoplete#enable_at_startup = 1
-
-"inoremap <silent><expr> <TAB>
-    "\ pumvisible() ? "\<C-n>" :
-    "\ <SID>check_back_space() ? "\<TAB>" :
-    "\ deoplete#mappings#manual_complete()
-"function! s:check_back_space() abort "{{{
-    "let col = col('.') - 1
-    "return !col || getline('.')[col - 1]  =~ '\s'
-"endfunction"}}}
-
-" NERDTree
-let NERDTreeWinPos="left"
-let NERDTreeHighlightCursorline=1
-let NERDTreeAutoDeleteBuffer=1
-let NERDTreeMinimalUI=1
-
-" If possible open a NERDTreeMirror
-function! OpenNERDTreeMirror()
-  try
-    :NERDTreeToggle | NERDTreeMirror
-  catch /^Vim\%((\a\+)\)\=:E121/
-    :NERDTree
-  catch
-    redraw
-  endtry
-endfunction
-
-noremap <silent> <C-\> :call OpenNERDTreeMirror()<CR>
-nnoremap <silent> <leader>fl :NERDTreeFind<CR>
-command! E exec ":NERDTree ".expand('%:p')
+nnoremap <C-\> :NvimTreeToggle<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <leader>n :NvimTreeFindFile<CR>
 
 let g:vim_jsx_pretty_highlight_close_tag = 1
 
@@ -601,4 +573,7 @@ lua << EOF
       { name = 'luasnip' },
     },
   }
+
+  require'nvim-web-devicons'.setup{}
+  require'nvim-tree'.setup {}
 EOF
