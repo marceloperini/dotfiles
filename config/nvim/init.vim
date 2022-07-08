@@ -212,6 +212,9 @@ nnoremap <leader>n :NvimTreeFindFile<CR>
 
 let g:vim_jsx_pretty_highlight_close_tag = 1
 
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -500,10 +503,15 @@ lua << EOF
 
   -- Use a loop to conveniently call 'setup' on multiple servers and
   -- map buffer local keybindings when the language server attaches
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
   local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'solargraph' }
+
+  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
   for _, lsp in pairs(servers) do
     require('lspconfig')[lsp].setup {
       on_attach = on_attach,
+      capabilities = capabilities,
       flags = {
         -- This will be the default in neovim 0.7+
         debounce_text_changes = 150,
@@ -513,20 +521,6 @@ lua << EOF
           diagnostics = false,
         },
       }
-    }
-  end
-
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-
-  local lspconfig = require('lspconfig')
-
-  -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-  local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
-  for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup {
-      -- on_attach = my_custom_on_attach,
-      capabilities = capabilities,
     }
   end
 

@@ -15,6 +15,8 @@ return require('packer').startup(function()
 
   use { 'junegunn/fzf', run = function() vim.fn['fzf#install()'](0) end } -- A command-line fuzzy finder                 | https://github.com/junegunn/fzf
 
+  use { 'prettier/vim-prettier', run = 'yarn install --frozen-lockfile --production' }
+
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
