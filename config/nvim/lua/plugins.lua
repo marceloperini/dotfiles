@@ -6,14 +6,16 @@ return require('packer').startup(function()
   use 'rhysd/git-messenger.vim'                      -- Reveal the commit messages under the cursor | https://github.com/rhysd/git-messenger.vim
   use 'cohama/agit.vim'                              -- Git commits visualizations                  | https://github.com/cohama/agit.vim
   use 'dense-analysis/ale'                           -- Asynchronous Lint Engine                    | https://github.com/dense-analysis/ale
-  use 'stsewd/fzf-checkout.vim'                      -- Manage branches and tags with fzf           | https://github.com/stsewd/fzf-checkout.vim
   use 'tpope/vim-fugitive'                           -- Tim Pope's Git wrapper                      | https://github.com/tpope/vim-fugitive
   use 'tpope/vim-surround'                           -- Quoting/parenthesizing made simple          | https://github.com/tpope/vim-surround
   use 'tpope/vim-endwise'                            -- Close structures automatically              | https://github.com/tpope/vim-endwise
   use 'tpope/vim-eunuch'                             -- UNIX commands on Vim                        | https://github.com/tpope/vim-eunuch
-  use 'junegunn/fzf.vim'                             -- FZF for Vim                                 | https://github.com/junegunn/fzf.vim
-
-  use { 'junegunn/fzf', run = function() vim.fn['fzf#install()'](0) end } -- A command-line fuzzy finder                 | https://github.com/junegunn/fzf
+  use 'f-person/git-blame.nvim'
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   use { 'prettier/vim-prettier', run = 'yarn install --frozen-lockfile --production' }
 
@@ -26,8 +28,6 @@ return require('packer').startup(function()
   }
 
   use 'preservim/nerdcommenter'                      -- Comment functions                           | https://github.com/preservim/nerdcommenter
-  use 'Shougo/neosnippet.vim'
-  use 'Shougo/neosnippet-snippets'
   use 'godlygeek/tabular'
   use { 'mg979/vim-visual-multi', branch = 'master' } -- Multiple cursors plugin for vim/neovim      | https://github.com/mg979/vim-visual-multi
   use 'vim-airline/vim-airline'
@@ -60,6 +60,7 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
+  use 'rafamadriz/friendly-snippets'
 
   -- Colorscheme
   use 'morhetz/gruvbox'

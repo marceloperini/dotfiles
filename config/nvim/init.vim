@@ -216,18 +216,13 @@ let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" FZF.
+" Telescope.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Type CTRL+p to open FZF window and search files
-nnoremap <silent> <C-d> :Files<CR>
-nnoremap <silent> <C-f> :Ag<CR>
 
-" Enable per-command history
-" - History files will be stored in the specified directory
-" - When set, CTRL-N and CTRL-P will be bound to 'next-history' and
-"   'previous-history' instead of 'down' and 'up'.
-let g:fzf_history_dir = '~/.local/share/fzf-history'
-let g:fzf_layout = { 'down': '30%' }
+nnoremap <silent> <C-d> :Telescope find_files<CR>
+nnoremap <silent> <C-f> :Telescope live_grep<CR>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Markdown.
@@ -570,4 +565,5 @@ lua << EOF
 
   require'nvim-web-devicons'.setup{}
   require'nvim-tree'.setup {}
+  require'luasnip'.filetype_extend("ruby", {"rails"})
 EOF
