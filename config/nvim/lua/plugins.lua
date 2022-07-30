@@ -17,7 +17,11 @@ return require('packer').startup(function()
   }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
-  use { 'prettier/vim-prettier', run = 'yarn install --frozen-lockfile --production' }
+  use {
+    'prettier/vim-prettier',
+    ft = {'javascript', 'typescript', 'css', 'less', 'scss', 'json'},
+    run = 'yarn install --frozen-lockfile --production'
+  }
 
   use {
     'kyazdani42/nvim-tree.lua',
