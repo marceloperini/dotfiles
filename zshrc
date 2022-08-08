@@ -102,12 +102,10 @@ export EDITOR="vim"
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 export LESS="-R"
-export TERMINAL="gnome-terminal"
+export TERMINAL="kitty"
 
 # ooh, what is this? Aliases?
 source ~/.oh-my-zsh/lib/alias.zsh
-
-test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -121,3 +119,5 @@ fpath=(${ASDF_DIR}/completions $fpath)
 autoload -Uz compinit
 compinit
 
+
+export PATH="$HOME/.poetry/bin:$PATH"

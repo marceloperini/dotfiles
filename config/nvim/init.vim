@@ -560,6 +560,7 @@ lua << EOF
     sources = {
       { name = 'nvim_lsp' },
       { name = 'luasnip' },
+      { name = 'buffer' },
     },
   }
 
