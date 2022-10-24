@@ -23,8 +23,8 @@ window:
   # Specified in number of columns/lines, not pixels.
   # If both are `0`, this setting is ignored.
   dimensions:
-    columns: 0
-    lines: 0
+    columns: 178
+    lines: 40
 
   # Window position (changes require restart)
   #
@@ -56,8 +56,16 @@ window:
   #     - buttonless: Title bar, transparent background, but no title bar buttons
   decorations: full
 
-  # When true, alacritty starts maximized.
-  startup_mode: Maximized
+  # Startup Mode (changes require restart)
+  #
+  # Values for `startup_mode`:
+  #   - Windowed
+  #   - Maximized
+  #   - Fullscreen
+  #
+  # Values for `startup_mode` (macOS only):
+  #   - SimpleFullscreen
+  startup_mode: Windowed
 
   # Allow terminal applications to change Alacritty's window title.
   dynamic_title: true
@@ -75,11 +83,11 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: "DejaVuSansMono Nerd Font Mono"
+    family: "JetBrainsMono Nerd Font Mono"
     style: Regular
 
   # Point size
-  size: 11.5
+  size: 13
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -108,7 +116,7 @@ font:
   #
   # This is a global setting and will require a log out or restart to take
   # effect.
-  use_thin_strokes: true
+  # use_thin_strokes: true
 
 # Display the time it takes to redraw each frame.
 render_timer: false
