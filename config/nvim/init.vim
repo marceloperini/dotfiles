@@ -212,9 +212,6 @@ nnoremap <leader>n :NvimTreeFindFile<CR>
 
 let g:vim_jsx_pretty_highlight_close_tag = 1
 
-let g:prettier#autoformat = 1
-let g:prettier#autoformat_require_pragma = 0
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Telescope.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
