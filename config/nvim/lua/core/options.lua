@@ -42,4 +42,10 @@ opt.clipboard:append("unnamedplus")
 opt.splitright = true
 opt.splitbelow = true
 
+-- turn backup off
+opt.swapfile = false
+opt.backup = false
+opt.writebackup = false
+opt.wb = false
+
 opt.iskeyword:append("-")
