@@ -48,8 +48,5 @@ keymap.set("n", "<leader>r", ":TestFile<CR>")
 
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
 
--- Move a line of text using Control+[jk]
-keymap.set("n", "<C-j>", "mz:m+<cr>`z")
-keymap.set("n", "<C-k>", "mz:m-2<cr>`z")
-keymap.set("v", "<C-j>", ":m'>+<cr>`<my`>mzgv`yo`z")
-keymap.set("v", "<C-k>", ":m'<-2<cr>`>my`<mzgv`yo`z")
+keymap.set("v", "<", "<gv")
+keymap.set("v", ">", ">gv")

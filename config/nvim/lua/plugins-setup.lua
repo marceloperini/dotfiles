@@ -29,9 +29,6 @@ return packer.startup(function(use)
   -- lua functions that many plugins use
   use("nvim-lua/plenary.nvim")
 
-  -- tmux & split window navigation
-  use("christoomey/vim-tmux-navigator")
-
   -- maximizes and restores current window
   use("szw/vim-maximizer")
 
@@ -51,6 +48,9 @@ return packer.startup(function(use)
   use("editorconfig/editorconfig-vim")
   use("pbrisbin/vim-mkdir")
   use("APZelos/blamer.nvim")
+
+  -- move lines or words vertically or horizontally
+  use("fedepujol/move.nvim")
 
   -- ruby plugins
   use("tpope/vim-rails")
