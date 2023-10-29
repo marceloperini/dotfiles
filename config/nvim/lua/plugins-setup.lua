@@ -76,7 +76,6 @@ return packer.startup(function(use)
 
   -- Colorscheme
   use("morhetz/gruvbox")
-  use("ayu-theme/ayu-vim")
 
   -- icons
   use("nvim-tree/nvim-web-devicons")
