@@ -6,7 +6,6 @@ end
 nvim_lint.linters_by_ft = {
   ruby = {"standardrb",},
   javascript = {"eslint",}
-
 }
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {

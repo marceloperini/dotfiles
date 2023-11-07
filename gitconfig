@@ -1,7 +1,7 @@
 [user]
   name = Marcelo Perini Veloso
-  email = marcelo.perini.veloso@pm.me
-  signingkey = 1397508EE6ECADFE
+  email = marcelo.veloso@streetbees.com
+  signingkey = 2B455A81E0AE697D
 
 [color]
   ui = true
@@ -44,3 +44,10 @@
 
 [alias]
   commit = commit -S -v
+[gui]
+	recentrepo = /Users/marcelo.veloso/Dev/da-vinci
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
