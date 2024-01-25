@@ -64,6 +64,7 @@ return packer.startup(function(use)
   -- CSS and SCSS plugins
   use("ap/vim-css-color")
   use("cakebaker/scss-syntax.vim")
+  use("tpope/vim-haml")
 
   -- Elixir plugins
   use("elixir-editors/vim-elixir") 
@@ -103,6 +104,7 @@ return packer.startup(function(use)
       ts_update()
     end,
   })
+  use("nvim-treesitter/nvim-treesitter-context")
 
   -- fuzzy finding
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
@@ -121,6 +123,9 @@ return packer.startup(function(use)
   use("neovim/nvim-lspconfig")
   use("hrsh7th/cmp-nvim-lsp")
   use("mfussenegger/nvim-lint")
+
+  -- Co Pilot
+  use("github/copilot.vim")
 
   if packer_bootstrap then
     require("packer").sync()
