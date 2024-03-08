@@ -163,6 +163,15 @@ vim.opt.scrolloff = 10
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
+
+vim.opt.colorcolumn = '121'
+
+-- turn backup off
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.writebackup = false
+vim.opt.wb = false
+
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
@@ -203,6 +212,10 @@ vim.keymap.set('n', '<leader>wv', '<C-w>v', { desc = 'Split window vertically' }
 vim.keymap.set('n', '<leader>wh', '<C-w>s', { desc = 'Split window horizontally' })
 vim.keymap.set('n', '<leader>we', '<C-w>=', { desc = 'Make split windows equal width' })
 vim.keymap.set('n', '<leader>wx', ':close<CR>', { desc = 'Close current split window' })
+
+-- Allow to indent to left or right without exit the Visual mode
+vim.keymap.set('v', '<', '<gv')
+vim.keymap.set('v', '>', '>gv')
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -297,8 +310,11 @@ require('lazy').setup {
       require('which-key').register {
         ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
         ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
+        ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
         ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
+        ['<leader>q'] = { name = 'Session', _ = 'which_key_ignore' },
         ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
+        ['<leader>t'] = { name = '[T]ab', _ = 'which_key_ignore' },
         ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
       }
     end,
@@ -703,15 +719,15 @@ require('lazy').setup {
         --
         -- No, but seriously. Please read `:help ins-completion`, it is really good!
         mapping = cmp.mapping.preset.insert {
-          -- Select the [n]ext item
-          ['<C-n>'] = cmp.mapping.select_next_item(),
-          -- Select the [p]revious item
-          ['<C-p>'] = cmp.mapping.select_prev_item(),
+          -- Select the next item
+          ['<C-j>'] = cmp.mapping.select_next_item(),
+          -- Select the previous item
+          ['<C-k>'] = cmp.mapping.select_prev_item(),
 
-          -- Accept ([y]es) the completion.
+          -- Use ENTER to accept the completion.
           --  This will auto-import if your LSP supports it.
           --  This will expand snippets if the LSP sent a snippet.
-          ['<C-y>'] = cmp.mapping.confirm { select = true },
+          ['<ENTER>'] = cmp.mapping.confirm { select = true },
 
           -- Manually trigger a completion from nvim-cmp.
           --  Generally you don't need this, because nvim-cmp will display
@@ -849,10 +865,136 @@ require('lazy').setup {
 
       vim.opt.termguicolors = true
 
-      vim.keymap.set('n', '<leader>]', ':NvimTreeToggle<CR>', { desc = 'Toggle Nvim Tree' }) -- toggle file explorer
+      vim.keymap.set('n', '<leader>wt', ':NvimTreeToggle<CR>', { desc = 'Toggle files explorer' })
+      vim.keymap.set('n', '<leader>wf', ':NvimTreeFindFile<CR>', { desc = 'Toggle files explorer opened in the current file' })
 
       require('nvim-tree').setup()
     end,
+  },
+  { 'tpope/vim-surround' },
+  { 'tpope/vim-endwise' },
+  { 'tpope/vim-eunuch' },
+  {
+    'tpope/vim-fugitive',
+    config = function()
+      vim.keymap.set('n', '<leader>gs', '<cmd>Git<cr>', { desc = 'Open Git status' })
+    end,
+  },
+  { 'pbrisbin/vim-mkdir' },
+  { 'APZelos/blamer.nvim' },
+  { 'editorconfig/editorconfig-vim' },
+  { 'mg979/vim-visual-multi' },
+
+  {
+    -- move lines or words vertically or horizontally
+    'fedepujol/move.nvim',
+    config = function()
+      require('move').setup {}
+
+      local opts = { noremap = true, silent = true }
+      -- Normal-mode commands
+      vim.keymap.set('n', '<C-j>', ':MoveLine(1)<CR>', opts)
+      vim.keymap.set('n', '<C-k>', ':MoveLine(-1)<CR>', opts)
+      vim.keymap.set('n', '<C-h>', ':MoveHChar(-1)<CR>', opts)
+      vim.keymap.set('n', '<C-l>', ':MoveHChar(1)<CR>', opts)
+
+      -- Visual-mode commands
+      vim.keymap.set('v', '<C-j>', ':MoveBlock(1)<CR>', opts)
+      vim.keymap.set('v', '<C-k>', ':MoveBlock(-1)<CR>', opts)
+      vim.keymap.set('v', '<C-h>', ':MoveHBlock(-1)<CR>', opts)
+      vim.keymap.set('v', '<C-l>', ':MoveHBlock(1)<CR>', opts)
+    end,
+  },
+
+  -- Ruby plugins
+  {
+    'tpope/vim-rails',
+  },
+  { 'tpope/vim-rake' },
+  { 'vim-ruby/vim-ruby' },
+  { 'tpope/vim-haml' },
+
+  -- CSS SCSS plugins
+  { 'ap/vim-css-color' },
+
+  -- Run tests directly from vim
+  {
+    'vim-test/vim-test',
+    config = function()
+      vim.keymap.set('n', '<leader>ct', ':TestFile<CR>', { desc = 'Run tests' })
+    end,
+  },
+
+  -- Reveal the commit messages under the cursor
+  { 'rhysd/git-messenger.vim' },
+  {
+    'APZelos/blamer.nvim',
+    config = function()
+      vim.g.blamer_enabled = true
+    end,
+  },
+  { 'github/copilot.vim' },
+
+  -- Indent guides
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    opts = {
+      indent = {
+        char = '│',
+        tab_char = '│',
+      },
+      scope = { enabled = false },
+      exclude = {
+        filetypes = {
+          'help',
+          'alpha',
+          'dashboard',
+          'neo-tree',
+          'Trouble',
+          'trouble',
+          'lazy',
+          'mason',
+          'notify',
+          'toggleterm',
+          'lazyterm',
+        },
+      },
+    },
+    main = 'ibl',
+    config = function()
+      require('ibl').setup()
+    end,
+  },
+
+  -- Session management. This saves your session in the background,
+  -- keeping track of open buffers, window arrangement, and more.
+  -- You can restore sessions when returning through the dashboard.
+  {
+    'folke/persistence.nvim',
+    opts = { options = vim.opt.sessionoptions:get() },
+    keys = {
+      {
+        '<leader>qs',
+        function()
+          require('persistence').load()
+        end,
+        desc = 'Restore Session',
+      },
+      {
+        '<leader>ql',
+        function()
+          require('persistence').load { last = true }
+        end,
+        desc = 'Restore Last Session',
+      },
+      {
+        '<leader>qd',
+        function()
+          require('persistence').stop()
+        end,
+        desc = "Don't Save Current Session",
+      },
+    },
   },
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
