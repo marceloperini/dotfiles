@@ -447,6 +447,9 @@ require('lazy').setup {
       { 'j-hui/fidget.nvim', opts = {} },
     },
     config = function()
+      -- Go to Definition open in a new tab
+      vim.keymap.set('n', 'gt', '<cmd>tab split | lua vim.lsp.buf.definition()<CR>', {})
+
       -- Brief Aside: **What is LSP?**
       --
       -- LSP is an acronym you've probably heard, but might not understand what it is.
@@ -933,7 +936,7 @@ require('lazy').setup {
       vim.g.blamer_enabled = true
     end,
   },
-  { 'github/copilot.vim' },
+  -- { 'github/copilot.vim' },
 
   -- Indent guides
   {
@@ -998,6 +1001,19 @@ require('lazy').setup {
   },
 
   { 'iamcco/markdown-preview.nvim', build = 'cd app && npx --yes yarn install' },
+  {
+    'akinsho/bufferline.nvim',
+    version = '*',
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    config = function()
+      vim.opt.termguicolors = true
+      require('bufferline').setup {
+        options = {
+          mode = 'tabs',
+        },
+      }
+    end,
+  },
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
