@@ -27,5 +27,13 @@ config.font_size = 16.0
 config.hide_tab_bar_if_only_one_tab = true
 config.send_composed_key_when_left_alt_is_pressed = true
 
+config.keys = {
+	{ mods = "OPT", key = "LeftArrow", action = wezterm.action.SendKey({ mods = "ALT", key = "b" }) },
+	{ mods = "OPT", key = "RightArrow", action = wezterm.action.SendKey({ mods = "ALT", key = "f" }) },
+	{ mods = "CMD", key = "LeftArrow", action = wezterm.action.SendKey({ mods = "CTRL", key = "a" }) },
+	{ mods = "CMD", key = "RightArrow", action = wezterm.action.SendKey({ mods = "CTRL", key = "e" }) },
+	{ mods = "CMD", key = "Backspace", action = wezterm.action.SendKey({ mods = "CTRL", key = "u" }) },
+}
+
 -- and finally, return the configuration to wezterm
 return config
