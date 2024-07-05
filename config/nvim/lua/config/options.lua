@@ -6,7 +6,7 @@
 vim.opt.spell = true
 vim.opt.spelllang = "en_gb"
 
-vim.opt.colorcolumn = "121"
+vim.opt.colorcolumn = "113"
 
 -- turn backup off
 vim.opt.swapfile = false
