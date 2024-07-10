@@ -3,7 +3,7 @@
 -- Add any additional options here
 
 -- spelling
-vim.opt.spell = true
+vim.opt.spell = false
 vim.opt.spelllang = "en_gb"
 
 vim.opt.colorcolumn = "113"
