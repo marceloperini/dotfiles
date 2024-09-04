@@ -1,3 +1,5 @@
+local util = require("lspconfig.util")
+
 return {
   {
     "neovim/nvim-lspconfig",
@@ -15,6 +17,8 @@ return {
         -- },
         ruby_lsp = {
           cmd = { "ruby-lsp" },
+          filetypes = { "ruby" },
+          root_dir = util.root_pattern("Gemfile", ".git"),
           init_options = {
             formatter = "false",
           },
