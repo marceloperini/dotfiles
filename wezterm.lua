@@ -22,7 +22,7 @@ config.font = wezterm.font({
 	harfbuzz_features = { "calt=1", "clig=0", "liga=0" },
 })
 
-config.font_size = 16.0
+config.font_size = 17.0
 
 config.hide_tab_bar_if_only_one_tab = true
 config.send_composed_key_when_left_alt_is_pressed = true
