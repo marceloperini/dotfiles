@@ -98,25 +98,22 @@ setopt CORRECT
 
 # make sure that if a program wants you to edit
 # text, that Vim is going to be there for you
-export EDITOR="vim"
+export EDITOR="nvim"
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 export LESS="-R"
-export TERMINAL="kitty"
+export TERMINAL="alacritty"
 
 # ooh, what is this? Aliases?
 source ~/.oh-my-zsh/lib/alias.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-. $HOME/.asdf/asdf.sh
-
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.poetry/bin:$PATH"
 
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 # append completions to fpath
-fpath=(${ASDF_DIR}/completions $fpath)
+fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
-
-
-export PATH="$HOME/.poetry/bin:$PATH"
