@@ -44,8 +44,6 @@
 
 [alias]
   commit = commit -S -v
-[gui]
-	recentrepo = /Users/marcelo.veloso/Dev/da-vinci
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
