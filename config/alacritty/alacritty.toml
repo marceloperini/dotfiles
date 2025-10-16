@@ -49,7 +49,7 @@ cyan = "0x54ced6"
 white = "0xffffff"
 
 [font]
-size = 14
+size = 18
 
 [font.normal]
 family = "Inconsolata Nerd Font Mono"
